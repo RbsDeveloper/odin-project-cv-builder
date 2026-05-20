@@ -1,18 +1,19 @@
 import NavBar from './components/nav'
 import CvEditor from './components/CvEditor'
 import CvPreview from './components/CvPreview'
+import { useState } from 'react'
 //import './App.css'
 
 const sampleCv = {
     personalInfo: {
-    profileImgUrl: "https://pixabay.com/photos/canoe-lake-adventure-kayak-2179196/",
-    fullName: "Alex Morgan",
-    email: "alex.morgan@email.com",
-    phone: "+1 (555) 019-2834",
-    location: "San Francisco, CA",
-    linkedInUrl: "linkedin.com/in/alexmorgan",
-    websiteUrl: "alexmorgan.dev",
-    summary: "Passionate Frontend Developer with 2+ years of experience building responsive web applications.",
+      profileImgUrl: "https://pixabay.com/photos/canoe-lake-adventure-kayak-2179196/",
+      fullName: "Alex Morgan",
+      email: "alex.morgan@email.com",
+      phone: "+1 (555) 019-2834",
+      location: "San Francisco, CA",
+      linkedInUrl: "linkedin.com/in/alexmorgan",
+      websiteUrl: "alexmorgan.dev",
+      summary: "Passionate Frontend Developer with 2+ years of experience building responsive web applications.",
   },
   education: [
     {
@@ -65,12 +66,14 @@ const sampleCv = {
 
 function App() {
 
+  const [cv, setCv] = useState(sampleCv);
+
   return (
     <>
       <NavBar></NavBar>
       <main>
         <CvEditor></CvEditor>
-        <CvPreview></CvPreview>
+        <CvPreview cvInfo={cv}></CvPreview>
       </main>
     </>
   )
