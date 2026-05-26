@@ -1,5 +1,5 @@
 import NavBar from './components/nav'
-import CvEditor from './components/CvEditor'
+import CvEditor from './components/form/CvEditor'
 import CvPreview from './components/CvPreview'
 import { useState } from 'react'
 import './App.css'
@@ -64,15 +64,38 @@ const sampleCv = {
   }
   }
 
+  const emptyCv = {
+      personalInfo: {
+      profileImgUrl: "",
+      fullName: "",
+      email: "",
+      phone: "",
+      location: "",
+      linkedInUrl: "",
+      websiteUrl: "",
+      summary: "",
+  },
+  education: [
+  ],
+  jobs: [
+  ],
+  languages: [
+  ],
+  skills: [
+  ],
+  projects: [
+  ],
+  }
+
 function App() {
 
-  const [cv, setCv] = useState(sampleCv);
+  const [cv, setCv] = useState(emptyCv);
 
   return (
     <>
       <NavBar></NavBar>
       <main>
-        <CvEditor></CvEditor>
+        <CvEditor cvInfo={cv} changeCv={setCv}></CvEditor>
         <CvPreview cvInfo={cv}></CvPreview>
       </main>
     </>
