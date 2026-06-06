@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Briefcase, ChevronDown, Plus, Trash, Save } from "lucide-react"
+import { Briefcase, ChevronDown, Plus, Trash, Save, Pencil } from "lucide-react"
 
 function WorkForm({cvInfo, changeCv}) {
 
@@ -63,6 +63,8 @@ function WorkForm({cvInfo, changeCv}) {
 
 function CreateWorkForm({ jobInfo, changeCv }) {
 
+    const [isOpen, setOpen] = useState(true)
+
     function handleChange(e) {
         const{name, value} = e.target
         console.log(name)
@@ -70,27 +72,65 @@ function CreateWorkForm({ jobInfo, changeCv }) {
 
         changeCv((prevInfo) => ({
             ...prevInfo,
-            jobs:[
-                ...prevInfo.jobs.map((item) => item.id === jobInfo.id ? {...item, [name]:value} : item),
+            jobs: prevInfo.jobs.map((item) => item.id === jobInfo.id ? {...item, [name]:value} : item),
+        }))
+    }
 
-            ]
+    function toggleAccordionSections(e) {
+        e.stopPropagation();
+        setOpen(!isOpen);
+    }
+
+    function toggleEditSave(e) {
+        e.stopPropagation()
+        changeCv((prevInfo) => ({
+            ...prevInfo,
+            jobs: prevInfo.jobs.map((job) => job.id === jobInfo.id ? {...job, isEditing: !job.isEditing} : job)
+        }))
+    }
+
+    function handleDeletion(e) {
+        e.stopPropagation();
+
+        changeCv((prevInfo) => ({
+            ...prevInfo,
+            jobs: prevInfo.jobs.filter((jobObj) => jobObj.id !== jobInfo.id)
+        }))
+    }
+
+    function handleCheckboxClick() {
+        changeCv((prevInfo) => ({
+            ...prevInfo,
+            jobs: prevInfo.jobs.map((job) => job.id === jobInfo.id ? {...job, workHere: !jobInfo.workHere}: job)
         }))
     }
 
     return (
         <div className="job_accordion">
-            <div className="job_header">
+            <div className="job_header" onClick={toggleAccordionSections}>
                 <div className="header_left_side">
                     <ChevronDown></ChevronDown> 
-                    <h2 className="job_title"></h2>
+                    <h2 className="job_title">{jobInfo.position === "" ? "New Position" : jobInfo.position}</h2>
                 </div>
                 <div className="job_right_side">
-                    <button className="edit_save_btn"><Save></Save></button>
-                    <button className="delete_btn"><Trash></Trash></button>
+                    {jobInfo.isEditing ? (
+                        <button className="edit_save_btn" onClick={toggleEditSave}><Save></Save></button>
+                        ) : (
+                        <button className="edit_save_btn" onClick={toggleEditSave}><Pencil></Pencil></button>
+                    )}
+                    <button className="delete_btn" onClick={handleDeletion}><Trash></Trash></button>
                 </div>
             </div>
-            <div className="accordion_body">
-                <form onSubmit={(e)=>e.preventDefault()}>
+            {isOpen && (
+                 <div className="accordion_body">
+                <form 
+                    onSubmit={(e)=>e.preventDefault()}
+                    style={{
+                        pointerEvents: jobInfo.isEditing ? "auto" : "none",
+                        opacity: jobInfo.isEditing ? 1 : 0.75
+                        }
+                    }
+                    >
                     <label htmlFor={`company-${jobInfo.id}`}>Company</label>
                     <input 
                         type="text" 
@@ -134,7 +174,7 @@ function CreateWorkForm({ jobInfo, changeCv }) {
                             <input 
                                 type="month"   
                                 id={`endDate-${jobInfo.id}`}
-                                value={jobInfo.endDate}
+                                value={jobInfo.workHere ? "present" : jobInfo.endDate}
                                 name="endDate"
                                 onChange={handleChange}
                             />
@@ -143,10 +183,10 @@ function CreateWorkForm({ jobInfo, changeCv }) {
 
                     <input 
                         type="checkbox" 
-                        name="workhere" 
+                        name="workHere" 
                         id={`workHere-${jobInfo.id}`} 
-                        value={jobInfo.workHere}
-                        onChange={handleChange}
+                        checked={jobInfo.workHere}
+                        onClick={handleCheckboxClick}
                     />
                     <label htmlFor={`workHere-${jobInfo.id}`}>I currently work here</label>
 
@@ -159,6 +199,7 @@ function CreateWorkForm({ jobInfo, changeCv }) {
                     ></textarea>
                 </form>
             </div>
+            )}  
         </div>
     )
 }
