@@ -3,6 +3,7 @@ import EducationForm from "./EducationForm.jsx";
 import WorkForm from "./WorkForm.jsx";
 import LanguagesForm from "./LanguagesForm.jsx";
 import SkillsForm from "./SkillsForm.jsx";
+import ProjectsForm from "./ProjectsForm.jsx";
 
 function CvEditor({cvInfo, changeCv}) {
     return (
@@ -12,6 +13,7 @@ function CvEditor({cvInfo, changeCv}) {
             <WorkForm cvInfo={cvInfo} changeCv={changeCv}></WorkForm>
             <LanguagesForm cvInfo={cvInfo} changeCv={changeCv}></LanguagesForm>
             <SkillsForm cvInfo={cvInfo} changeCv={changeCv}></SkillsForm>
+            <ProjectsForm cvInfo={cvInfo} changeCv={changeCv}></ProjectsForm>
         </div>
     )
 }

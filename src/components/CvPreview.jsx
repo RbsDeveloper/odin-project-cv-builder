@@ -101,7 +101,7 @@ function CvPreview({cvInfo}) {
                                             <li key={project.id}>
                                                 <h3>{project.projectName}</h3>
                                                 <p className="projectDescription">{project.description}</p>
-                                                <p><span>Technologies: </span>{project.tech.join(", ")}</p>
+                                                <p><span>Technologies: </span>{project.tech}</p>
                                             </li>
                                         )
                                     })
