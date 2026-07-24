@@ -1,9 +1,10 @@
-import PersonalInfoForm from "./PersonalInfoForm.jsx";
-import EducationForm from "./EducationForm.jsx";
-import WorkForm from "./WorkForm.jsx";
-import LanguagesForm from "./LanguagesForm.jsx";
-import SkillsForm from "./SkillsForm.jsx";
-import ProjectsForm from "./ProjectsForm.jsx";
+import PersonalInfoForm from "./form/PersonalInfoForm.jsx";
+import EducationForm from "./form/EducationForm.jsx";
+import WorkForm from "./form/WorkForm.jsx";
+import LanguagesForm from "./form/LanguagesForm.jsx";
+import SkillsForm from "./form/SkillsForm.jsx";
+import ProjectsForm from "./form/ProjectsForm.jsx";
+import CustomizationForm from "./form/CustomizationForm.jsx";
 
 function CvEditor({cvInfo, changeCv}) {
     return (
@@ -14,6 +15,7 @@ function CvEditor({cvInfo, changeCv}) {
             <LanguagesForm cvInfo={cvInfo} changeCv={changeCv}></LanguagesForm>
             <SkillsForm cvInfo={cvInfo} changeCv={changeCv}></SkillsForm>
             <ProjectsForm cvInfo={cvInfo} changeCv={changeCv}></ProjectsForm>
+            <CustomizationForm cvInfo={cvInfo} changeCv={changeCv}></CustomizationForm>
         </div>
     )
 }

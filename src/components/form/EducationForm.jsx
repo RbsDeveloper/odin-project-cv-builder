@@ -43,17 +43,17 @@ function EducationForm({cvInfo, changeCv}) {
             </div>
             {isOpen && (
                 <div className="accordion_panel">
-                <div className="formContainer">
-                    {cvInfo.education.map((edu)=> <CreateForm key={edu.id} eduInfo={edu} changeCv={changeCv}></CreateForm>)}
-                </div>
-                <button 
-                    onClick={handleClick}
-                    type="button"
-                    disabled={isCurrentlyEditingSomething}
-                    className={isCurrentlyEditingSomething ? "btn-disable" : "btn-add"}
-                >
-                    <Plus></Plus> Add Education
-                </button>
+                    <div className="formContainer">
+                        {cvInfo.education.map((edu)=> <CreateForm key={edu.id} eduInfo={edu} changeCv={changeCv}></CreateForm>)}
+                    </div>
+                    <button 
+                        onClick={handleClick}
+                        type="button"
+                        disabled={isCurrentlyEditingSomething}
+                        className={isCurrentlyEditingSomething ? "btn-disable" : "btn-add"}
+                    >
+                        <Plus></Plus> Add Education
+                    </button>
             </div>
             )}
         </div>

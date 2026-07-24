@@ -1,5 +1,5 @@
 import NavBar from './components/nav'
-import CvEditor from './components/form/CvEditor'
+import CvEditor from './components/CvEditor'
 import CvPreview from './components/CvPreview'
 import { useState } from 'react'
 import './App.css'
@@ -85,6 +85,12 @@ const sampleCv = {
   ],
   projects: [
   ],
+  customization: {
+    primaryColor: "#6366f1",
+    secondaryColor: "#8b5cf6",
+    fontFamily:"Inter",
+    layout:"Modern"
+  }
   }
 
 function App() {
