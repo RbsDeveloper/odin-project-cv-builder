@@ -1,9 +1,9 @@
 import { Mail, Phone, Globe, MapPin, Link  } from "lucide-react";
 
 
-function CvPreview({cvInfo}) {
+function CvPreview({cvInfo, isPreviewOpen}) {
     return (
-        <div className="preview-wrapper">
+        <div className = {`cv_preview_modal ${isPreviewOpen? "active": ""}`}>
             <article className="a4-page">
                 <header>
                     {cvInfo.personalInfo.profileImgUrl && <div className="profileWrapper"><img src={cvInfo.personalInfo.profileImgUrl} alt="" /></div>}

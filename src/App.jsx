@@ -1,8 +1,10 @@
+import { Eye, EyeOff } from "lucide-react"
 import NavBar from './components/nav'
 import CvEditor from './components/CvEditor'
 import CvPreview from './components/CvPreview'
 import { useState } from 'react'
-import './App.css'
+import './styles/App.css'
+import './styles/layout.css'
 
 const sampleCv = {
     personalInfo: {
@@ -96,14 +98,25 @@ const sampleCv = {
 function App() {
 
   const [cv, setCv] = useState(emptyCv);
+  const [isPreviewOpen, setPreview] = useState(false);
 
   return (
     <>
       <NavBar></NavBar>
       <main>
         <CvEditor cvInfo={cv} changeCv={setCv}></CvEditor>
-        <CvPreview cvInfo={cv}></CvPreview>
+        <CvPreview 
+          cvInfo={cv}
+          isPreviewOpen={isPreviewOpen}
+          ></CvPreview>
       </main>
+       <button
+          className= {`btn preview_btn ${isPreviewOpen ? "is_active": ""}`}
+          id="cvPreviewBtn"
+          onClick={()=>setPreview(!isPreviewOpen)}
+          >
+          {isPreviewOpen ? <EyeOff/> : <Eye/>}
+        </button>
     </>
   )
 }

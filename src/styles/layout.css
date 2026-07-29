@@ -1,0 +1,46 @@
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: red;
+  height: auto;
+}
+
+.cv_preview_modal {
+    display: none;
+}
+
+.cv_preview_modal.active {
+    display: flex;
+    justify-content: center; /* Centers the A4 page horizontally */
+    align-items: flex-start;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left:0;
+    right: 0;
+}
+
+.a4-page {
+  background-color: #fff;
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.05),
+    0 10px 20px rgba(0, 0, 0, 0.08),
+    0 20px 40px rgba(0, 0, 0, 0.06);
+  margin: 2rem;
+}
+
+.preview_btn {
+    height: 50px;
+    width: 50px;
+    position: fixed;
+    right: 20px;
+    bottom: max(20px, env(safe-area-inset-bottom))
+;    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: blueviolet;
+    border: none;
+    color: #fff;
+    z-index: 2000;
+}
