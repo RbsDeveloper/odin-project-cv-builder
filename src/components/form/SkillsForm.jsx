@@ -45,7 +45,7 @@ function SkillsForm({cvInfo, changeCv}) {
                         type="button"
                         onClick={handleClick}
                         disabled = {isCurrentlyEditingSomething}
-                        className={isCurrentlyEditingSomething ? "btn-disabled" : "btn-add"}
+                        className={isCurrentlyEditingSomething ? "btn_disabled btn-add" : "btn_enabled btn-add"}
                     > 
                         <Plus></Plus>
                         Add Skill Category

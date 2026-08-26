@@ -48,7 +48,7 @@ function ProjectsForm({cvInfo, changeCv}) {
                     onClick={handleClick}
                     type="button"
                     disabled={isCurrentlyEditingSomething}
-                    className={isCurrentlyEditingSomething ? "btn-disable" : "btn-add"}
+                    className={isCurrentlyEditingSomething ? "btn_disabled btn-add" : "btn_enabled btn-add"}
                 >
                     <Plus></Plus> Add Project
                 </button>
@@ -116,44 +116,44 @@ function CreateForm({projectInfo, changeCv}) {
             </div>
             {isOpen && (
                 <div className="accordion_body">
-                <form 
-                    onSubmit={(e) => e.preventDefault()} 
-                    style={{
-                        pointerEvents: projectInfo.isEditing ? "auto" : "none",
-                        opacity: projectInfo.isEditing ? 1 : 0.75
-                    }}
-                >
-            <label htmlFor={`name-${projectInfo.id}`}>Name</label>
-            <input 
-                type="text" 
-                id={`name-${projectInfo.id}`} 
-                name="projectName" 
-                onChange={handleChange}
-                value={projectInfo.projectName} />
+                    <form 
+                        onSubmit={(e) => e.preventDefault()} 
+                        style={{
+                            pointerEvents: projectInfo.isEditing ? "auto" : "none",
+                            opacity: projectInfo.isEditing ? 1 : 0.75
+                        }}
+                    >
+                        <label htmlFor={`name-${projectInfo.id}`}>Name</label>
+                        <input 
+                            type="text" 
+                            id={`name-${projectInfo.id}`} 
+                            name="projectName" 
+                            onChange={handleChange}
+                            value={projectInfo.projectName} />
 
-            <label htmlFor={`description-${projectInfo.id}`}>description</label>
-            <textarea 
-                name="description"
-                id={`description-${projectInfo.id}`}
-                onChange={handleChange} 
-                value={projectInfo.description}></textarea>
+                        <label htmlFor={`description-${projectInfo.id}`}>description</label>
+                        <textarea 
+                            name="description"
+                            id={`description-${projectInfo.id}`}
+                            onChange={handleChange} 
+                            value={projectInfo.description}></textarea>
 
-            <label htmlFor={`tech-${projectInfo.id}`}>Tech</label>
-            <input 
-                type="text" 
-                id={`tech-${projectInfo.id}`} 
-                name="tech" 
-                onChange={handleChange} 
-                value={projectInfo.tech}/>
+                        <label htmlFor={`tech-${projectInfo.id}`}>Tech</label>
+                        <input 
+                            type="text" 
+                            id={`tech-${projectInfo.id}`} 
+                            name="tech" 
+                            onChange={handleChange} 
+                            value={projectInfo.tech}/>
 
-            <label htmlFor={`projectUrl-${projectInfo.id}`}>Project link</label>
-            <input 
-                type="url" 
-                id={`projectUrl-${projectInfo.id}`} 
-                name="projectUrl" 
-                onChange={handleChange} 
-                value={projectInfo.projectUrl}/>
-        </form>
+                        <label htmlFor={`projectUrl-${projectInfo.id}`}>Project link</label>
+                        <input 
+                            type="url" 
+                            id={`projectUrl-${projectInfo.id}`} 
+                            name="projectUrl" 
+                            onChange={handleChange} 
+                            value={projectInfo.projectUrl}/>
+                    </form>
             </div>
             )}
             

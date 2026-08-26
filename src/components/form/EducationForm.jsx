@@ -50,7 +50,7 @@ function EducationForm({cvInfo, changeCv}) {
                         onClick={handleClick}
                         type="button"
                         disabled={isCurrentlyEditingSomething}
-                        className={isCurrentlyEditingSomething ? "btn-disable" : "btn-add"}
+                        className={isCurrentlyEditingSomething ? "btn-disabled btn-add" : "btn_enabled btn-add"}
                     >
                         <Plus></Plus> Add Education
                     </button>

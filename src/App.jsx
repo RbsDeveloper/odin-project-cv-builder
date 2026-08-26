@@ -5,6 +5,7 @@ import CvPreview from './components/CvPreview'
 import { useState } from 'react'
 import './styles/App.css'
 import './styles/layout.css'
+import './styles/forms.css'
 
 const sampleCv = {
     personalInfo: {

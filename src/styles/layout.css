@@ -1,7 +1,23 @@
+:root {
+
+  --primary-indigo-purple: #6366f1;
+  --secondary-indigo-purple: #8b5cf6;
+  --primary-blue-ocean: #3b82f6;
+  --secondary-blue-ocean: #06b6d4;
+  --primary-emerald-green: #10b981;
+  --secondary-emerald-green: #14b8a6;
+  --primary-rose-pink: #f43f5e;
+  --secondary-rose-pink: #ec4899;
+  --primary-orange-sunset: #f97316;
+  --secondary-orange-sunset: #fb923c;
+  --primary-navy: #1e3a8a;
+  --secondary-navy: #3730a3;
+}
+
+
 main {
   display: grid;
   grid-template-columns: 1fr;
-  background-color: red;
   height: auto;
 }
 
@@ -34,8 +50,8 @@ main {
     width: 50px;
     position: fixed;
     right: 20px;
-    bottom: max(20px, env(safe-area-inset-bottom))
-;    display: flex;
+    bottom: max(20px, env(safe-area-inset-bottom));    
+    display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;

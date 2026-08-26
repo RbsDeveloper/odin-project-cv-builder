@@ -51,7 +51,7 @@ function WorkForm({cvInfo, changeCv}) {
                         onClick={handleClickAddBtn}
                         type="button"
                         disabled={isCurrentlyEditingSomething}
-                        className={isCurrentlyEditingSomething ? "btn_disabled" : "btn_enabled"}
+                        className={isCurrentlyEditingSomething ? "btn_disabled btn-add" : "btn_enabled btn-add"}
                     >
                         <Plus></Plus> Add Work Experience
                     </button>

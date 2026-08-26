@@ -55,7 +55,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #root {
-  background-color: green;
   height: 100dvh;
   position: relative;
 }
