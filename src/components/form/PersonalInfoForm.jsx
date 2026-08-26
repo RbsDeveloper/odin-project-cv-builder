@@ -3,10 +3,10 @@ import { useState, useRef } from "react"
 
 function PersonalInfoForm({cvInfo, changeCv}) {
 
-    const [status, setStatus] = useState(false);
+    const [isOpen, setOpen] = useState(false);
 
     function handleClick() {
-        setStatus(!status);
+        setOpen(!isOpen);
     }
 
     return (
@@ -15,9 +15,13 @@ function PersonalInfoForm({cvInfo, changeCv}) {
                 <h2><User></User> Personl Information</h2>
                 <ChevronDown></ChevronDown>
             </div>
-            <div className="accordion_panel">
-               {status && <CreateForm cvInfo={cvInfo} changeCv={changeCv}></CreateForm>}
-            </div>
+            {isOpen && (
+                    <div className="accordion_panel">
+                        <div className="formContainer">
+                            <CreateForm cvInfo={cvInfo} changeCv={changeCv}></CreateForm>
+                        </div>
+                    </div>
+                )}
         </div>
     )
 }
