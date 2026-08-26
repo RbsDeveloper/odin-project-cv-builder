@@ -1,6 +1,7 @@
 import { Sparkles, Printer, Download } from "lucide-react"
+import { Eye, EyeOff } from "lucide-react"
 
-function NavBar() {
+function NavBar({isPreviewOpen, setPreview}) {
     return(
         <nav className="navbar">
             <div className="logoContainer">
@@ -30,6 +31,15 @@ function NavBar() {
                         <Download />
                         PDF
                     </button>
+                </li>
+                <li>
+                <button
+                className= {`btn preview_btn ${isPreviewOpen ? "is_active": ""}`}
+                id="cvPreviewBtn"
+                onClick={()=>setPreview(!isPreviewOpen)}
+                >
+                {isPreviewOpen ? <EyeOff/> : <Eye/>}
+        </button>
                 </li>
             </ul>
         </nav>

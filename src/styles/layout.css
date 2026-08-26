@@ -47,15 +47,9 @@ main {
 }
 
 .preview_btn {
-    height: 50px;
-    width: 50px;
-    position: fixed;
-    right: 20px;
-    bottom: max(20px, env(safe-area-inset-bottom));    
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
     background-color: blueviolet;
     border: none;
     color: #fff;
