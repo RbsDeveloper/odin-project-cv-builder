@@ -1,0 +1,97 @@
+.editor-wrapper {
+    padding: 1rem;
+}
+
+.accordion {
+    display: flex;
+    flex-direction: column;
+    margin-block-end: 1rem;
+    border-radius: .5rem;
+    overflow: hidden;
+}
+
+.accordion_header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: .8rem;
+    padding-inline: 1rem;
+    padding-block: .5rem;
+    background-color: red;
+    overflow: hidden;
+}
+
+.accordion_panel {
+    padding: 1rem;
+}
+
+.education_accordion {
+    border: 1px solid ;
+    border-radius: .5rem;
+}
+
+.education_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lightgray;
+    padding: .5rem 1rem;
+    font-size: .75rem;
+}
+
+.accordion_body {
+    padding: 1rem;
+}
+
+.accordion_body form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form_group {
+    display: flex;
+    flex-direction: column;
+}
+
+.header_left_side {
+    display: flex;
+    align-items: center;
+}
+
+.header_right_side {
+    display: flex;
+    gap: .5rem;
+}
+
+.edit_save_btn, .delete_btn {
+    border-radius: .4rem;
+    background-color: transparent;
+    border: none;
+}
+
+.edit_save_btn {
+    color: green;
+}
+
+.delete_btn {
+    color: red;
+}
+
+.edit_save_btn:hover {
+    background-color: lightgreen;
+}
+
+.delete_btn:hover {
+    background-color: lightsalmon;
+}
+
+.btn-add {
+    display: flex;
+    padding: .75rem 2rem;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    border-radius: 1rem;
+    border: dashed 1px;
+}
