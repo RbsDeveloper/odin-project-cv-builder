@@ -19,6 +19,7 @@ main {
   display: grid;
   grid-template-columns: 1fr;
   height: auto;
+  padding-bottom: 4rem;
 }
 
 .cv_preview_modal {
@@ -59,4 +60,33 @@ main {
     border: none;
     color: #fff;
     z-index: 2000;
+}
+
+nav {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  padding: 1rem;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navButtons {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: red;
+  padding: 0.75rem 1rem;
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  list-style: none;
+  z-index: 1500;
 }
