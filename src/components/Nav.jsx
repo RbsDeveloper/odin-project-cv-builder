@@ -13,30 +13,31 @@ function NavBar({isPreviewOpen, setPreview}) {
             </div>
             <ul className="navButtons">
                 <li>
-                    <button className="autoFillBtn">
+                    <button className="autoFill_Btn nav_btn">
                         <Sparkles />
                         Autofill
                     </button>
                 </li>
                 <li>
-                    <button className="printCvBtn">
+                    <button className="printCv_Btn nav_btn">
                         <Printer />
                         Print
                     </button>
                 </li>
                 <li>
-                    <button className="downloadPdf">
+                    <button className="downloadPdf_Btn nav_btn">
                         <Download />
                         PDF
                     </button>
                 </li>
                 <li>
                 <button
-                className= {`btn preview_btn ${isPreviewOpen ? "is_active": ""}`}
+                className= {`nav_btn preview_btn ${isPreviewOpen ? "is_active": ""}`}
                 id="cvPreviewBtn"
                 onClick={()=>setPreview(!isPreviewOpen)}
                 >
                 {isPreviewOpen ? <EyeOff/> : <Eye/>}
+                preview
         </button>
                 </li>
             </ul>

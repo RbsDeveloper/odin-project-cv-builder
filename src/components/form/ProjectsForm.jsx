@@ -34,7 +34,7 @@ function ProjectsForm({cvInfo, changeCv}) {
     const isCurrentlyEditingSomething = cvInfo.projects.some(project => project.isEditing);
 
     return (
-        <div className="accordion">
+        <div className="accordion accordion_projects">
             <div className="accordion_header" onClick={toggleAccordion}>
                 <h2><Folder /> Projects</h2>
                 <ChevronDown></ChevronDown>

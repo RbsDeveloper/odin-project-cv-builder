@@ -36,7 +36,7 @@ function EducationForm({cvInfo, changeCv}) {
     const isCurrentlyEditingSomething = cvInfo.education.some(edu => edu.isEditing === true);
 
     return (
-        <div className="accordion">
+        <div className="accordion accordion_education">
             <div className="accordion_header" onClick={toggleAccordion}>
                 <h2><GraduationCap /> Education</h2>
                 <ChevronDown></ChevronDown>

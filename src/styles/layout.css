@@ -1,15 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap');
+
 :root {
 
   --primary-indigo-purple: #6366f1;
-  --secondary-indigo-purple: #8b5cf6;
-  --primary-blue-ocean: #3b82f6;
+  --secondary-indigo-purple: #9333EA;
+  --primary-blue-ocean: #3B82F6;
   --secondary-blue-ocean: #06b6d4;
-  --primary-emerald-green: #10b981;
-  --secondary-emerald-green: #14b8a6;
+  --primary-emerald-green: #10B981;
+  --secondary-emerald-green: #0F766E;
   --primary-rose-pink: #f43f5e;
   --secondary-rose-pink: #ec4899;
-  --primary-orange-sunset: #f97316;
-  --secondary-orange-sunset: #fb923c;
+  --primary-orange-sunset: #EA580C;
+  --secondary-orange-sunset: #DC2626;
   --primary-navy: #1e3a8a;
   --secondary-navy: #3730a3;
 }
@@ -19,6 +22,7 @@ main {
   display: grid;
   grid-template-columns: 1fr;
   height: auto;
+  padding-top: 5rem;
   padding-bottom: 4rem;
 }
 
@@ -50,8 +54,6 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: blueviolet;
-    border: none;
     color: #fff;
     z-index: 2000;
 }
@@ -61,6 +63,10 @@ nav {
   grid-template-columns: 1fr;
   align-items: center;
   padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .logoContainer {
@@ -71,16 +77,35 @@ nav {
 
 .navButtons {
   position: fixed;
+  width: auto;
   bottom: 0;
   left: 0;
   right: 0;
-
+  border-top: 1px solid #ccc;
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  background-color: red;
+  background-color: #fff;
   padding: 0.75rem 1rem;
   padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
   list-style: none;
   z-index: 1500;
+}
+
+.navButtons > li {
+  flex: 1;
+  min-width: 0;
+}
+
+.nav_btn {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  color: var(--primary-indigo-purple);
+  border: none;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  min-width: 0;
 }

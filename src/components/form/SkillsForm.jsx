@@ -29,7 +29,7 @@ function SkillsForm({cvInfo, changeCv}) {
     const isCurrentlyEditingSomething = cvInfo.skills.some((skill) => skill.isEditing);
 
     return (
-        <div className="accordion">
+        <div className="accordion accordion_skills">
             <div className="accordion_header" onClick={toggleAccordion}>
                 <h2><Code></Code> Skills</h2>
                 <ChevronDown></ChevronDown>

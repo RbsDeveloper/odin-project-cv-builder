@@ -10,7 +10,7 @@ function PersonalInfoForm({cvInfo, changeCv}) {
     }
 
     return (
-        <div className="accordion">
+        <div className="accordion accordion_personalInfo">
             <div className="accordion_header" onClick={handleClick}>
                 <h2><User></User> Personl Information</h2>
                 <ChevronDown></ChevronDown>

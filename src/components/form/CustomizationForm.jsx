@@ -108,7 +108,7 @@ function CustomizationForm({cvInfo, changeCv}) {
     }
 
     return (
-        <div className="accordion">
+        <div className="accordion accordion_customization">
             <div className="accordion_header" onClick={handleClick}>
                 <h2><Palette/> Customization</h2>
                 <ChevronDown/>

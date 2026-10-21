@@ -29,7 +29,7 @@ function LanguagesForm({ cvInfo , changeCv}) {
 
     return (
 
-        <div className="accordion">
+        <div className="accordion accordion_languages">
             <div className="accordion_header" onClick={toggleAccordion}>
                 <h2><Languages></Languages> Languages</h2>
                 <ChevronDown></ChevronDown>

@@ -34,7 +34,7 @@ function WorkForm({cvInfo, changeCv}) {
     const isCurrentlyEditingSomething = cvInfo.jobs.some(job=> job.isEditing === true);
 
     return (
-        <div className="accordion">
+        <div className="accordion accordion_work">
             <div className="accordion_header" onClick={toggleAccordion}>
                 <h2><Briefcase></Briefcase> Work Experience</h2>
                 <ChevronDown></ChevronDown>
