@@ -1,4 +1,4 @@
-import NavBar from './components/nav'
+import NavBar from './components/Nav'
 import CvEditor from './components/CvEditor'
 import CvPreview from './components/CvPreview'
 import { useState } from 'react'

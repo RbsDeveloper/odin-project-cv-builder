@@ -1,16 +1,14 @@
-import { Sparkles, Printer, Download } from "lucide-react"
-import { Eye, EyeOff } from "lucide-react"
+import { Sparkles, Printer, Download, Eye, EyeOff, FileText } from "lucide-react"
 
 function NavBar({isPreviewOpen, setPreview}) {
     return(
         <nav className="navbar">
             <div className="logoContainer">
                 <div className="icon">
-                    <Sparkles />
+                    <FileText />
                 </div>
                 <div className="logoText">
-                    <p>Cv Builder Pro</p>
-                    <span>Create your professional resume in minutes</span>
+                    <p>CVPro</p>
                 </div>
             </div>
             <ul className="navButtons">
