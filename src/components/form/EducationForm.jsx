@@ -100,8 +100,8 @@ function CreateForm({eduInfo, changeCv}) {
 
     return (
 
-        <div className="education_accordion" id={`edu-${eduInfo.id}`}>
-            <div className="education_header" onClick={toggleAccordionSections}>
+        <div className="education_card card" id={`edu-${eduInfo.id}`}>
+            <div className="card_header" onClick={toggleAccordionSections}>
                 <div className="header_left_side">
                     <ChevronDown></ChevronDown>
                     <h2 className="education_title">{eduInfo.institution !== "" ? eduInfo.institution : "New education"}</h2>
@@ -117,7 +117,7 @@ function CreateForm({eduInfo, changeCv}) {
                 </div>
             </div>
             {isOpen && (
-                <div className="accordion_body">
+                <div className="card_body">
                 <form 
                     onSubmit={(e) => e.preventDefault()} 
                     style={{

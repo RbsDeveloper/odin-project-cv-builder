@@ -93,8 +93,8 @@ function CreateSkillForm({ skillInfo, changeCv}) {
 
 
     return (
-        <div className="skill_accordion">
-            <div className="skill_header" onClick={toggleAccordionSections}>
+        <div className="skill_card card">
+            <div className="card_header" onClick={toggleAccordionSections}>
                 <div className="header_left_side">
                     <ChevronUp></ChevronUp>
                     <h2>{skillInfo.category === "" ? "New Skill Category" : skillInfo.category }</h2>
@@ -103,14 +103,14 @@ function CreateSkillForm({ skillInfo, changeCv}) {
 
                     {skillInfo.isEditing ? (
                         <button
-                            className="save-btn"
+                            className="edit_save_btn"
                             onClick={toggleEditSave}
                         >
                             <Save></Save>
                         </button>
                     ) : (
                         <button
-                            className="edit-btn"
+                            className="edit_save_btn"
                             onClick={toggleEditSave}
                         >
                             <Pencil></Pencil>
@@ -127,7 +127,7 @@ function CreateSkillForm({ skillInfo, changeCv}) {
                 </div>
             </div>
             {isOpen && (
-                <div className="accordion_body">
+                <div className="card_body">
                     <form 
                         onSubmit={(e)=> e.preventDefault()}
                         style={{

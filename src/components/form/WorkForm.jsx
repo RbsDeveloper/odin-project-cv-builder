@@ -106,13 +106,13 @@ function CreateWorkForm({ jobInfo, changeCv }) {
     }
 
     return (
-        <div className="job_accordion">
-            <div className="job_header" onClick={toggleAccordionSections}>
+        <div className="job_card card">
+            <div className="card_header" onClick={toggleAccordionSections}>
                 <div className="header_left_side">
                     <ChevronDown></ChevronDown> 
                     <h2 className="job_title">{jobInfo.position === "" ? "New Position" : jobInfo.position}</h2>
                 </div>
-                <div className="job_right_side">
+                <div className="header_right_side">
                     {jobInfo.isEditing ? (
                         <button className="edit_save_btn" onClick={toggleEditSave}><Save></Save></button>
                         ) : (
@@ -122,7 +122,7 @@ function CreateWorkForm({ jobInfo, changeCv }) {
                 </div>
             </div>
             {isOpen && (
-                 <div className="accordion_body">
+                <div className="card_body">
                 <form 
                     onSubmit={(e)=>e.preventDefault()}
                     style={{
@@ -158,8 +158,8 @@ function CreateWorkForm({ jobInfo, changeCv }) {
                         onChange={handleChange}
                     />
 
-                    <div className="date-group">
-                        <div className="form-group">
+                    <div className="date_group">
+                        <div className="form_group">
                             <label htmlFor={`startDate-${jobInfo.id}`}>Start Date</label>
                             <input 
                                 type="month" 
@@ -169,7 +169,7 @@ function CreateWorkForm({ jobInfo, changeCv }) {
                                 onChange={handleChange}
                             />   
                         </div>
-                        <div className="form-group">
+                        <div className="form_group">
                             <label htmlFor={`endDate-${jobInfo.id}`}>End Date</label>
                             <input 
                                 type="month"   
@@ -181,14 +181,16 @@ function CreateWorkForm({ jobInfo, changeCv }) {
                         </div>
                     </div>
 
-                    <input 
-                        type="checkbox" 
-                        name="workHere" 
-                        id={`workHere-${jobInfo.id}`} 
-                        checked={jobInfo.workHere}
-                        onClick={handleCheckboxClick}
-                    />
+                    <div className="checkbox_group">
+                        <input 
+                            type="checkbox" 
+                            name="workHere" 
+                            id={`workHere-${jobInfo.id}`} 
+                            checked={jobInfo.workHere}
+                            onClick={handleCheckboxClick}
+                        />
                     <label htmlFor={`workHere-${jobInfo.id}`}>I currently work here</label>
+                    </div>
 
                     <label htmlFor={`description-${jobInfo.id}`}>Description</label>
                     <textarea 

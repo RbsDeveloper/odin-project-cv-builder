@@ -6,8 +6,10 @@
     display: flex;
     flex-direction: column;
     margin-block-end: 1rem;
-    border-radius: .5rem;
+    border-radius: .65rem;
     overflow: hidden;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
+    border: none;
 }
 
 .accordion_personalInfo .accordion_header {
@@ -46,7 +48,7 @@
     font-size: .8rem;
     font-family: 'Space Grotesk', sans-serif;
     padding-inline: 1rem;
-    padding-block: .5rem;
+    padding-block: .75rem;
     overflow: hidden;
 }
 
@@ -63,32 +65,70 @@ h2 svg {
     padding: 1rem;
 }
 
-.education_accordion {
-    border: 1px solid ;
+.card {
+    border: 1px solid #c7d2fe;
     border-radius: .5rem;
+    margin-block: 1rem;
 }
 
-.education_header {
+.card_header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: lightgray;
+    background-color: #e0e7ff;
     padding: .5rem 1rem;
-    font-size: .75rem;
+    font-size: .65rem;
+    font-family: "Inter", sans-serif;
+    color: #111827;
 }
 
-.accordion_body {
+input, select {
+    font-family: 'Inter', sans-serif;
+    padding: .25rem;
+    border-radius: .5rem;
+    border: 1px solid #d1d5db;
+    background: transparent;
+    font-size: .85rem;
+}
+
+textarea {
+    resize: none;
+    padding: .5rem;
+    border-radius: .5rem;
+    border: 1px solid lightgray;
+    background: transparent;
+}
+
+.card_body {
     padding: 1rem;
+    background-color: #eef2ff;
 }
 
-.accordion_body form {
+.card_body form {
     display: flex;
     flex-direction: column;
+}
+
+.card_body label {
+    color:#4b5563;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.card_body input, .card_body textarea {
+    margin-block: .25rem 0.5rem;
 }
 
 .form_group {
     display: flex;
     flex-direction: column;
+}
+
+.checkbox_group {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
 }
 
 .header_left_side {
@@ -126,10 +166,10 @@ h2 svg {
 .btn-add {
     font-family: 'Inter', sans-serif;
     color: var(--primary-indigo-purple);
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 500;
     display: flex;
-    padding: .75rem 2rem;
+    padding: 0.70rem 1.75rem;
     width: 100%;
     justify-content: center;
     align-items: center;

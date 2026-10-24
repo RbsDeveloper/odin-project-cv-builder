@@ -88,23 +88,23 @@ function CreateLanguageForm({langInfo, changeCv}) {
     }
 
     return (
-        <div className="language_accordion">
-            <div className="language_header" onClick={toggleAccordionSections}>
-                <div className="header_left-Side">
+        <div className="language_card card">
+            <div className="card_header" onClick={toggleAccordionSections}>
+                <div className="header_left_side">
                     <ChevronDown></ChevronDown>
                     <h2 className="language_title">{langInfo.name === "" ? "New Language" : langInfo.name}</h2>
                 </div>
                 <div className="header_right_side">
                     {langInfo.isEditing ? (
                         <button 
-                            className="save_btn"
+                            className="edit_save_btn"
                             onClick={toggleEditSave}
                         >
                             <Save></Save>
                         </button>
                     ) : (
                         <button 
-                            className="edit_btn"
+                            className="edit_save_btn"
                             onClick={toggleEditSave}    
                         >
                             <Pencil></Pencil>
@@ -119,7 +119,7 @@ function CreateLanguageForm({langInfo, changeCv}) {
                 </div>
             </div>
             {isOpen && (
-                <div className="accordion_body">
+                <div className="card_body">
                 <form action=""
                     onSubmit={(e)=> e.preventDefault()}
                     style={{
