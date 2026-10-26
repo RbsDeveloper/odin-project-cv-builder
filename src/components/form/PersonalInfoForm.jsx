@@ -12,13 +12,13 @@ function PersonalInfoForm({cvInfo, changeCv}) {
     return (
         <div className="accordion accordion_personalInfo">
             <div className="accordion_header" onClick={handleClick}>
-                <h2><User></User> Personl Information</h2>
+                <h2><User></User> Personal Information</h2>
                 <ChevronDown></ChevronDown>
             </div>
             {isOpen && (
                     <div className="accordion_panel">
                         <div className="formContainer">
-                            <CreateForm cvInfo={cvInfo} changeCv={changeCv}></CreateForm>
+                            <CreateForm cvInfo={cvInfo} changeCv={changeCv} className="personal_info_accordion"></CreateForm>
                         </div>
                     </div>
                 )}
@@ -65,20 +65,24 @@ function CreateForm({cvInfo, changeCv}) {
         
          <form action="" onChange={handleChange}>
                     <div className="image_selector">
-                        <div className="image_preview">
-                            <User></User>
-                        </div>
+                        
+                            <div className="image_preview">
+                                <User></User>
+                            </div>
+                            <p>Profile Photo</p>
+                        
                         <fieldset>
-                            <label htmlFor="upload_btn">Profile Photo</label>
                             <button id="upload_btn" type="button" onClick={triggerFileInput}><Upload></Upload> Upload</button>
                             <input type="file" ref={fileInputRef} onChange={handleLocalUpload} accept="image/*" style={{display: "none"}}/>
-                            <input type="url" id="profile_url" name="profileImgUrl" onChange={handleChange} value={cvInfo.personalInfo.profileImgUrl}/>
+                            <input type="url" id="profile_url" name="profileImgUrl" onChange={handleChange}  placeholder="Or paste image URL" value={cvInfo.personalInfo.profileImgUrl}/>
                         </fieldset>
                     </div>
 
-                    <label htmlFor="full_name"><User></User>Full Name</label>
-                    <input type="text" id="full_name" placeholder="john Doe" name="fullName" onChange={handleChange} value={cvInfo.personalInfo.fullName || ""}/>
-                    <fieldset>
+                    
+                    <fieldset className="personal_info_fields">
+                        <label htmlFor="full_name"><User></User>Full Name</label>
+                        <input type="text" id="full_name" placeholder="john Doe" name="fullName" onChange={handleChange} value={cvInfo.personalInfo.fullName || ""}/>
+
                         <label htmlFor="email"><Mail></Mail>Email</label>
                         <input type="email" id="email" placeholder="john@email.com" name="email" onChange={handleChange} value={cvInfo.personalInfo.email || ""}/>
 
@@ -91,13 +95,13 @@ function CreateForm({cvInfo, changeCv}) {
                         <label htmlFor="linkedIn_Profile"><Link></Link> LinkedIn</label>
                         <input type="url" id="linkedIn_Profile" name="linkedInUrl" onChange={handleChange} value={cvInfo.personalInfo.linkedInUrl || ""}/>
 
+                        <label htmlFor="website"><Globe></Globe>Website</label>
+                        <input type="url" id="website" name="websiteUrl" onChange={handleChange} value={cvInfo.personalInfo.websiteUrl || ""}/>
+
+                        <label htmlFor="summary">Professional Summary</label>
+                        <textarea name="summary" id="summary" onChange={handleChange} value={cvInfo.personalInfo.summary || ""}></textarea>
                     </fieldset>
 
-                    <label htmlFor="website"><Globe></Globe>Website</label>
-                    <input type="url" id="website" name="websiteUrl" onChange={handleChange} value={cvInfo.personalInfo.websiteUrl || ""}/>
-
-                    <label htmlFor="summary">Professional Summary</label>
-                    <textarea name="summary" id="summary" onChange={handleChange} value={cvInfo.personalInfo.summary || ""}></textarea>
                 </form>
     )
 }

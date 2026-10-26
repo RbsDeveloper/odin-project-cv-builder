@@ -118,7 +118,10 @@ function CustomizationForm({cvInfo, changeCv}) {
                     <div className="form_Container">
                         <div className="theme_btns">
                             <h4>Color Theme</h4>
-                            <CreateThemeBtns currentPrimaryColor={primaryColor} currentSecondaryColor={secondaryColor} onSelectTheme={updateColors} ></CreateThemeBtns>
+                            <div className="btns_container">
+                                 <CreateThemeBtns currentPrimaryColor={primaryColor} currentSecondaryColor={secondaryColor} onSelectTheme={updateColors} ></CreateThemeBtns>
+                            </div>
+                           
                         </div>
                         <div className="input_color_container">
                                 <div className="color_picker">
@@ -162,7 +165,8 @@ function CustomizationForm({cvInfo, changeCv}) {
                                     </div>
                                 </div>
                         </div>
-                        <label htmlFor="fontSelector">Font Family</label>
+                        <div className="font_selector_container">
+                            <label htmlFor="fontSelector">Font Family</label>
                         <select 
                             name="fontFamily" 
                             id="fontSelector"
@@ -176,6 +180,8 @@ function CustomizationForm({cvInfo, changeCv}) {
                             <option value="Montserrat">Montserrat</option>
                             <option value="Poppins">Poppins</option>
                         </select>
+                        </div>
+                        
 
                         <div className="layout_btns">
                             <h4>Layout Style</h4>
@@ -200,6 +206,10 @@ function CreateThemeBtns({currentPrimaryColor, currentSecondaryColor, onSelectTh
             key={item.combinationName} 
             data-primary={item.firstColor} 
             data-secondary={item.secondColor}
+            style={{
+                "--primary-color": item.firstColor,
+                "--secondary-color": item.secondColor
+            }}
             className={isActive ? "theme_btn active" : "theme_btn"}
             onClick={(e) => {
                 const primary = e.currentTarget.dataset.primary;
