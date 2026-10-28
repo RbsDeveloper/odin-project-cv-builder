@@ -1,5 +1,8 @@
 .editor-wrapper {
     padding: 1rem;
+    border: 1px solid #C7D2FE;
+    border-radius: 1rem;
+    margin: 0.5rem;
 }
 
 .accordion {
@@ -40,9 +43,13 @@
     background: linear-gradient(135deg, var(--secondary-rose-pink), var(--primary-indigo-purple));
 }
 
+.accordion_header, .accordion_header h2 {
+  display: flex;
+  align-items: center;
+}
+
 .accordion_header {
     color: #fff;
-    display: flex;
     justify-content: space-between;
     width: 100%;
     font-size: .8rem;

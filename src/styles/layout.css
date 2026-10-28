@@ -1,29 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap');
-
-:root {
-
-  --primary-indigo-purple: #6366f1;
-  --secondary-indigo-purple: #9333EA;
-  --primary-blue-ocean: #3B82F6;
-  --secondary-blue-ocean: #06b6d4;
-  --primary-emerald-green: #10B981;
-  --secondary-emerald-green: #0F766E;
-  --primary-rose-pink: #f43f5e;
-  --secondary-rose-pink: #ec4899;
-  --primary-orange-sunset: #EA580C;
-  --secondary-orange-sunset: #DC2626;
-  --primary-navy: #1e3a8a;
-  --secondary-navy: #3730a3;
-}
-
-
 main {
-  display: grid;
-  grid-template-columns: 1fr;
-  height: auto;
-  padding-top: 5rem;
-  padding-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100dvh;
+  min-height: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding-block: 5rem;
+  overflow: hidden;
 }
 
 .cv_preview_modal {
@@ -32,13 +16,16 @@ main {
 
 .cv_preview_modal.active {
     display: flex;
-    justify-content: center; /* Centers the A4 page horizontally */
+    justify-content: center; 
     align-items: flex-start;
+    overflow-y: auto; 
     position: fixed;
-    top: 0;
-    bottom: 0;
-    left:0;
+    top: 4rem;
+    bottom: 4.5rem;
+    left: 0;
     right: 0;
+    background: rgb(0 0 0 / 40%);
+    z-index: 1000;
 }
 
 .a4-page {
@@ -47,7 +34,11 @@ main {
     0 1px 3px rgba(0, 0, 0, 0.05),
     0 10px 20px rgba(0, 0, 0, 0.08),
     0 20px 40px rgba(0, 0, 0, 0.06);
-  margin: 2rem;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  min-width: (100%, 210mm);
+  max-width: 100%;
 }
 
 .preview_btn {
@@ -59,6 +50,7 @@ main {
 }
 
 nav {
+  background-color: #fff;
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
@@ -67,6 +59,8 @@ nav {
   top: 0;
   left: 0;
   right: 0;
+  z-index: 3000;
+  box-shadow: 0 0.2rem 0.65rem rgba(0,0,0,0.2);
 }
 
 .logoContainer {
@@ -88,12 +82,21 @@ nav {
   padding: 0.75rem 1rem;
   padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
   list-style: none;
-  z-index: 1500;
+  gap: 1rem;
+  z-index: 3001;
+  gap: 0.5rem;
 }
 
 .navButtons > li {
-  flex: 1;
+  flex: 1 1 0;
   min-width: 0;
+}
+
+.navButtons li > button {
+  display: flex;
+  gap: .5rem;
+  padding: .75em 1em;
+  border-radius: .75rem;
 }
 
 .nav_btn {
@@ -101,12 +104,329 @@ nav {
   width: 100%;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   color: var(--primary-indigo-purple);
   background-color: #eef2ff;
   border: none;
-  font-size: 0.85rem;
+  font-size: 0.6rem;
   text-transform: uppercase;
   font-weight: 600;
   font-family: 'Inter', sans-serif;
   min-width: 0;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.nav_btn svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: 0 0 1.25rem;
+}
+
+.icon {
+  display: flex;
+  border-radius: .75rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  justify-content: center;
+  align-items: center;
+  background-color: violet;
+}
+
+.icon svg {
+  padding: .35em;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+}
+
+.logoText {
+  text-align: left;
+  line-height: 1.25rem;
+}
+
+.logoText p {
+  color: violet;
+  font-size: 1.35rem;
+  font-weight: bold;
+}
+
+.logoText span {
+  font-size: .85rem;
+}
+
+.autoFill_Btn {
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary-orange-sunset), var(--secondary-orange-sunset))
+}
+
+.printCv_Btn {
+  border: 1px solid var(--primary-indigo-purple);
+  background-color: #fff;
+}
+
+.downloadPdf_Btn {
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary-blue-ocean), var(--secondary-blue-ocean))
+}
+
+.preview_btn {
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary-emerald-green), var(--secondary-emerald-green))
+}
+
+.nav_btn svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+/*Editor side*/
+
+.editor-wrapper {
+  flex: 1;
+  max-height: none;
+  min-height: 0;
+  width: min(100%, 600px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.editor-wrapper,
+.cv_preview_modal.active {
+  scrollbar-color: var(--primary-indigo-purple) #eef2ff; /* thumb, track */
+  scrollbar-width: thin;
+}
+
+
+/*Cv page*/
+
+.a4-page header {
+  background-color: rebeccapurple;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.profileWrapper {
+  width: 6rem;
+  height: 6rem;
+  overflow: hidden;
+  border-radius: 50%; 
+  border: .25rem solid #fff;
+}
+
+.profileWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+address {
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+address h1 {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: 'Inter', sans-serif;
+  margin-block: .5em
+}
+
+.contactList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  list-style: none;
+  padding: 0;
+}
+
+.contactList li{
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .75rem;
+  color: #fff;
+  font-weight: 500;
+}
+
+.contactList li a{
+  text-decoration: none;
+  font-style: normal;
+  color: inherit;
+}
+
+.contactList li svg {
+  width: 1em;
+  height: 1em;
+  stroke-width: 2px;
+}
+
+.cvBody {
+  padding: 2rem;
+}
+
+.cvBody ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.a4-page section h2 {
+  color: purple;
+  border-bottom: 2px solid purple;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding-block: .5rem;
+  margin-block: .5rem;
+}
+
+.jobHeader, .studyHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.skillCategory {
+  font-weight: bold;
+}
+
+.languagesList {
+  display: flex;
+  gap: .5rem;
+}
+
+.languagesList li {
+  color: gray;
+}
+
+.languageName {
+  color: black;
+  font-weight: 600;
+}
+
+@media (min-width: 768px) {
+  nav {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .navButtons {
+    position: static;
+    border-top: none;
+    padding: 0;
+  }
+
+  .nav_btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .nav_btn svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  main {
+    height: auto;
+    min-height: 100dvh;
+    gap: 2rem;
+  }
+
+  .navButtons {
+    display: flex;
+    margin-left: auto;
+  }
+
+  .navButtons > li {
+    flex: 0 0 auto;
+  }
+
+  .a4-page {
+    flex: none;
+    align-self: flex-start;
+  }
+
+  .editor-wrapper {
+    flex: none;
+    max-height: calc(100dvh - 7rem);
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .cv_preview_modal,
+  .cv_preview_modal.active {
+    position: static;
+    inset: auto;
+    z-index: auto;
+    display: flex;
+    flex: none;
+    width: 100%;
+    min-height: 0;
+    max-height: none;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: visible;
+    padding-inline: 1rem;
+    background: transparent;
+  }
+
+   #cvPreviewBtn {
+    display: none;
+  }
+
+  .navButtons > li:has(#cvPreviewBtn) {
+    display: none;
+  }
+}
+
+@media (min-width: 1280px) {
+  body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  main {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2rem;
+    padding-inline: 2rem;
+    max-width: 1400px;
+  }
+
+  .editor-wrapper {
+    flex: 0 0 600px;
+    width: 600px;
+    margin: 0;
+  }
+
+  .cv_preview_modal,
+  .cv_preview_modal.active {
+    flex: 1;
+    min-width: 0;
+    padding-inline: 0;
+  }
+
+  .a4-page {
+    width: 210mm;
+    max-width: 100%;
+  }
 }

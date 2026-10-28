@@ -1,3 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap');
+
+:root {
+
+  --primary-indigo-purple: #6366f1;
+  --secondary-indigo-purple: #9333EA;
+  --primary-blue-ocean: #3B82F6;
+  --secondary-blue-ocean: #06b6d4;
+  --primary-emerald-green: #10B981;
+  --secondary-emerald-green: #0F766E;
+  --primary-rose-pink: #f43f5e;
+  --secondary-rose-pink: #ec4899;
+  --primary-orange-sunset: #EA580C;
+  --secondary-orange-sunset: #DC2626;
+  --primary-navy: #1e3a8a;
+  --secondary-navy: #3730a3;
+}
 
 /* 1. Use a more-intuitive box-sizing model */
 *, *::before, *::after {
@@ -59,178 +77,7 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
 }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #fff;
-  padding: 1rem;
-}
-
-.logoContainer {
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-}
-
-.icon {
-  display: flex;
-  border-radius: .75rem;
-  width: 2.5rem;
-  height: 2.5rem;
-  justify-content: center;
-  align-items: center;
-  background-color: violet;
-}
-
-.icon svg {
-  padding: .35em;
-  width: 100%;
-  height: 100%;
-  color: #fff;
-}
-
-.logoText {
-  text-align: left;
-  line-height: 1.25rem;
-}
-
-.logoText p {
-  color: violet;
-  font-size: 1.35rem;
-  font-weight: bold;
-}
-
-.logoText span {
-  font-size: .85rem;
-}
-
-.navButtons {
-  list-style: none;
-  display: inline-flex;
-  gap: 1rem;
-}
-
-.navButtons li > button {
-  display: flex;
-  gap: .5rem;
-  padding: .75em 1em;
-  border-radius: .75rem;
-}
 
 
 
-.accordion {
-  border: 1px solid black;
-}
 
-.accordion_header, .accordion_header h2 {
-  display: flex;
-  align-items: center;
-}
-
-
-
-/*Cv header*/
-
-header {
-  background-color: rebeccapurple;
-  display: flex;
-  padding: 2rem;
-  gap: 1.5rem;
-}
-
-address {
-  font-style: normal;
-}
-
-.profileWrapper {
-  width: 7rem;
-  height: 7rem;
-  overflow: hidden;
-  border-radius: 50%; 
-  border: .25rem solid #fff;
-}
-
-.profileWrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.contactList {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  list-style: none;
-  padding: 0;
-}
-
-.contactList li{
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-  font-size: .9rem;
-  color: #fff;
-  font-weight: 500;
-}
-
-.contactList li a{
-  text-decoration: none;
-  font-style: normal;
-  color: inherit;
-}
-
-.contactList li svg {
-  width: 1em;
-  height: 1em;
-  stroke-width: 2px;
-}
-
-.cvBody {
-  padding: 2rem;
-}
-
-.cvBody ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-section h2 {
-  color: purple;
-  border-bottom: 2px solid purple;
-  text-transform: uppercase;
-  font-weight: bold;
-  padding-block: .5rem;
-  margin-block: .5rem;
-}
-
-.jobHeader, .studyHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-}
-
-.timeline {
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-}
-
-.skillCategory {
-  font-weight: bold;
-}
-
-.languagesList {
-  display: flex;
-  gap: .5rem;
-}
-
-.languagesList li {
-  color: gray;
-}
-
-.languageName {
-  color: black;
-  font-weight: 600;
-}
