@@ -66,7 +66,13 @@ function CreateLanguageForm({langInfo, changeCv}) {
         }))
     }
 
-    function toggleEditSave() {
+    function toggleEditSave(e) {
+        e.stopPropagation();
+
+        if (!langInfo.isEditing && !isOpen) {
+            setOpen(true);
+        }
+
         changeCv((prevInfo) => ({
             ...prevInfo,
             languages: prevInfo.languages.map((lang)=> lang.id === langInfo.id ? {...lang, isEditing: !lang.isEditing} : lang)
@@ -97,14 +103,14 @@ function CreateLanguageForm({langInfo, changeCv}) {
                 <div className="header_right_side">
                     {langInfo.isEditing ? (
                         <button 
-                            className="edit_save_btn"
+                            className="save_btn"
                             onClick={toggleEditSave}
                         >
                             <Save></Save>
                         </button>
                     ) : (
                         <button 
-                            className="edit_save_btn"
+                            className="edit_btn"
                             onClick={toggleEditSave}    
                         >
                             <Pencil></Pencil>

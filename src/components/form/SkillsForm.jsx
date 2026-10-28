@@ -71,6 +71,10 @@ function CreateSkillForm({ skillInfo, changeCv}) {
     function toggleEditSave(e) {
         e.stopPropagation()
 
+        if (!skillInfo.isEditing && !isOpen) {
+            setOpen(true);
+        }
+
         changeCv((prevInfo) => ({
             ...prevInfo,
             skills: prevInfo.skills.map((skill) => skill.id === skillInfo.id ? {...skill, isEditing: !skill.isEditing} : skill )
@@ -103,14 +107,14 @@ function CreateSkillForm({ skillInfo, changeCv}) {
 
                     {skillInfo.isEditing ? (
                         <button
-                            className="edit_save_btn"
+                            className="save_btn"
                             onClick={toggleEditSave}
                         >
                             <Save></Save>
                         </button>
                     ) : (
                         <button
-                            className="edit_save_btn"
+                            className="edit_btn"
                             onClick={toggleEditSave}
                         >
                             <Pencil></Pencil>

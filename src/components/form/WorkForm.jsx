@@ -82,7 +82,12 @@ function CreateWorkForm({ jobInfo, changeCv }) {
     }
 
     function toggleEditSave(e) {
-        e.stopPropagation()
+        e.stopPropagation();
+
+        if (!jobInfo.isEditing && !isOpen) {
+            setOpen(true);
+        }
+
         changeCv((prevInfo) => ({
             ...prevInfo,
             jobs: prevInfo.jobs.map((job) => job.id === jobInfo.id ? {...job, isEditing: !job.isEditing} : job)
@@ -114,9 +119,9 @@ function CreateWorkForm({ jobInfo, changeCv }) {
                 </div>
                 <div className="header_right_side">
                     {jobInfo.isEditing ? (
-                        <button className="edit_save_btn" onClick={toggleEditSave}><Save></Save></button>
+                        <button className="save_btn" onClick={toggleEditSave}><Save></Save></button>
                         ) : (
-                        <button className="edit_save_btn" onClick={toggleEditSave}><Pencil></Pencil></button>
+                        <button className="edit_btn" onClick={toggleEditSave}><Pencil></Pencil></button>
                     )}
                     <button className="delete_btn" onClick={handleDeletion}><Trash></Trash></button>
                 </div>

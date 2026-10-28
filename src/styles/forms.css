@@ -232,22 +232,30 @@ textarea {
     gap: .5rem;
 }
 
-.edit_save_btn, .delete_btn {
+.edit_btn, .save_btn, .delete_btn {
     border-radius: .4rem;
     background-color: transparent;
     border: none;
 }
 
-.edit_save_btn {
-    color: green;
+.save_btn {
+    color: var(--primary-emerald-green);
+}
+
+.edit_btn {
+    color: var(--primary-indigo-purple)
 }
 
 .delete_btn {
     color: red;
 }
 
-.edit_save_btn:hover {
+.save_btn:hover {
     background-color: lightgreen;
+}
+
+.edit_btn:hover {
+    background-color: #C7D2FE;
 }
 
 .delete_btn:hover {

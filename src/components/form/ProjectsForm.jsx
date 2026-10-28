@@ -73,7 +73,12 @@ function CreateForm({projectInfo, changeCv}) {
         }))
     }
     
-    function toggleEditSave() {
+    function toggleEditSave(e) {
+        e.stopPropagation();
+        if (!projectInfo.isEditing && !isOpen) {
+            setOpen(true);
+        }
+
         changeCv((prevInfo)=>({
             ...prevInfo,
             projects: prevInfo.projects.map((item) =>
@@ -107,9 +112,9 @@ function CreateForm({projectInfo, changeCv}) {
                 <div className="header_right_side">
                     
                     {projectInfo.isEditing ? (
-                        <button className="edit_save_btn" onClick={toggleEditSave}><Save /></button>
+                        <button className="save_btn" onClick={toggleEditSave}><Save /></button>
                     ):(
-                        <button className="edit_save_btn" onClick={toggleEditSave}><Pencil /></button>
+                        <button className="edit_btn" onClick={toggleEditSave}><Pencil /></button>
                     )}
                     <button className="delete_btn" onClick={handleDeletion}><Trash /></button>
                 </div>

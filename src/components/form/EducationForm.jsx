@@ -75,12 +75,19 @@ function CreateForm({eduInfo, changeCv}) {
         }))
     }
     
-    function toggleEditSave() {
+    function toggleEditSave(e) {
+        e.stopPropagation();
+
+        if (!eduInfo.isEditing && !isOpen) {
+            setOpen(true);
+        }
+
         changeCv((prevInfo)=>({
             ...prevInfo,
             education: prevInfo.education.map((item) =>
             item.id === eduInfo.id ? {...item, isEditing: !item.isEditing}:item)
         }))
+
     }
 
     function toggleAccordionSections(e) {
@@ -109,9 +116,9 @@ function CreateForm({eduInfo, changeCv}) {
                 <div className="header_right_side">
                     
                     {eduInfo.isEditing ? (
-                        <button className="edit_save_btn" onClick={toggleEditSave}><Save /></button>
+                        <button className="save_btn" onClick={toggleEditSave}><Save /></button>
                     ):(
-                        <button className="edit_save_btn" onClick={toggleEditSave}><Pencil /></button>
+                        <button className="edit_btn" onClick={toggleEditSave}><Pencil /></button>
                     )}
                     <button className="delete_btn" onClick={handleDeletion}><Trash2 /></button>
                 </div>
@@ -188,4 +195,3 @@ function CreateForm({eduInfo, changeCv}) {
 }
 
 export default EducationForm;
-
