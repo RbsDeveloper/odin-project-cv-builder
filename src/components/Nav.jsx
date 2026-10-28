@@ -1,6 +1,6 @@
 import { Sparkles, Printer, Download, Eye, EyeOff, FileText } from "lucide-react"
 
-function NavBar({isPreviewOpen, setPreview}) {
+function NavBar({isPreviewOpen, setPreview, onAutoFill}) {
     return(
         <nav className="navbar">
             <div className="logoContainer">
@@ -13,7 +13,10 @@ function NavBar({isPreviewOpen, setPreview}) {
             </div>
             <ul className="navButtons">
                 <li>
-                    <button className="autoFill_Btn nav_btn">
+                    <button 
+                    className="autoFill_Btn nav_btn"
+                    onClick={() =>onAutoFill()}
+                    >
                         <Sparkles />
                         Autofill
                     </button>
@@ -31,14 +34,14 @@ function NavBar({isPreviewOpen, setPreview}) {
                     </button>
                 </li>
                 <li>
-                <button
-                className= {`nav_btn preview_btn ${isPreviewOpen ? "is_active": ""}`}
-                id="cvPreviewBtn"
-                onClick={()=>setPreview(!isPreviewOpen)}
-                >
-                {isPreviewOpen ? <EyeOff/> : <Eye/>}
-                preview
-        </button>
+                    <button
+                        className= {`nav_btn preview_btn ${isPreviewOpen ? "is_active": ""}`}
+                        id="cvPreviewBtn"
+                        onClick={()=>setPreview(!isPreviewOpen)}
+                    >
+                        {isPreviewOpen ? <EyeOff/> : <Eye/>}
+                        preview
+                    </button>
                 </li>
             </ul>
         </nav>

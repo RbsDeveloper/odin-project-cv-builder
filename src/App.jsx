@@ -23,8 +23,8 @@ const sampleCv = {
       institution: "Odin Tech University",
       degree: "B.S. in Computer Science",
       location: "Remote",
-      startDate: "2021",
-      endDate: "2025",
+      startDate: "2021-09",
+      endDate: "2025-06",
       description: "Graduated with honors. Focused on web architecture.",
     }
   ],
@@ -34,7 +34,7 @@ const sampleCv = {
       company: "WebCraft Studio",
       position: "Frontend Developer",
       location: "Austin, TX",
-      startDate: "2025",
+      startDate: "2025-08",
       endDate: "",
       workHere: true,
       description: "Developing custom React components and optimization strategies.",
@@ -62,7 +62,7 @@ const sampleCv = {
     primaryColor: "#4f46e5",
     secondaryColor: "#1e293b",
     fontFamily: "Inter, sans-serif",
-    layout: "modern"
+    layout: "Modern"
   }
   }
 
@@ -95,14 +95,20 @@ const sampleCv = {
   }
   }
 
+
+
 function App() {
 
   const [cv, setCv] = useState(emptyCv);
   const [isPreviewOpen, setPreview] = useState(false);
 
+  function handleAutoFill() {
+  setCv({...sampleCv});
+};
+
   return (
     <>
-      <NavBar isPreviewOpen={isPreviewOpen} setPreview={setPreview}></NavBar>
+      <NavBar isPreviewOpen={isPreviewOpen} setPreview={setPreview} onAutoFill={handleAutoFill}></NavBar>
       <main>
         <CvEditor cvInfo={cv} changeCv={setCv}></CvEditor>
         <CvPreview 

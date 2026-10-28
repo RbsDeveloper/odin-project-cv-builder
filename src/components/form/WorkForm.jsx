@@ -174,7 +174,7 @@ function CreateWorkForm({ jobInfo, changeCv }) {
                             <input 
                                 type="month"   
                                 id={`endDate-${jobInfo.id}`}
-                                value={jobInfo.workHere ? "present" : jobInfo.endDate}
+                                value={jobInfo.workHere ? "" : jobInfo.endDate}
                                 name="endDate"
                                 onChange={handleChange}
                             />
