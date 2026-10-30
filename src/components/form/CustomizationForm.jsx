@@ -37,15 +37,18 @@ const btnThemeColors = [
 
 const layoutBtns = [
     {
-        name: "Modern",
+        id: 1,
+        name: "modern",
         description: "Colorful with gradients",
     },
-    {
-        name: "Classic",
+    {   
+        id: 2,
+        name: "classic",
         description: "Traditional layout",
     },
     {
-        name:"Minimal",
+        id: 3,
+        name:"minimal",
         description:"Clean and simple",
     }
 ]
@@ -236,7 +239,9 @@ function CreateLayoutBtn({ currentLayout , clickAction}) {
         
         return (
             <button 
+                key={item.id}
                 data-layout={item.name}
+                aria-pressed={isActive}
                 className={isActive ? "layout_btn active" : "layout_btn"}
                 onClick={clickAction}
             >

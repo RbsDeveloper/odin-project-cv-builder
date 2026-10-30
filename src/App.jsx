@@ -62,7 +62,7 @@ const sampleCv = {
     primaryColor: "#4f46e5",
     secondaryColor: "#1e293b",
     fontFamily: "Inter",
-    layout: "Modern"
+    layout: "modern"
   }
   }
 
@@ -91,7 +91,7 @@ const sampleCv = {
     primaryColor: "#6366f1",
     secondaryColor: "#8b5cf6",
     fontFamily:"Inter",
-    layout:"Modern"
+    layout:"modern"
   }
   }
 

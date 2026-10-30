@@ -5,7 +5,7 @@ function CvPreview({cvInfo, isPreviewOpen}) {
     return (
         <div className = {`cv_preview_modal ${isPreviewOpen? "active": ""}`}>
             <article 
-                className="a4-page"
+                className= {`a4-page ${cvInfo.customization.layout}`}
                 style={{
                     "--cv-primary-color": cvInfo.customization.primaryColor,
                     "--cv-secondary-color": cvInfo.customization.secondaryColor,

@@ -201,8 +201,7 @@ nav {
 
 /*Cv page*/
 
-.a4-page header {
-  background: linear-gradient(135deg, var(--cv-primary-color), var(--cv-secondary-color));
+.a4-page header{
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -210,12 +209,41 @@ nav {
   gap: 1.5rem;
 }
 
-.profileWrapper {
+.a4-page.modern header {
+  background: linear-gradient(135deg, var(--cv-primary-color), var(--cv-secondary-color));
+}
+
+.a4-page.classic header, .a4-page.minimal header {
+  background: #fff;
+}
+
+.a4-page.classic header {
+  border-bottom: 2px solid var(--cv-primary-color);
+}
+
+.a4-page.minimal header {
+  border-bottom: 1px solid #ccc;
+}
+
+
+.a4-page .profileWrapper {
   width: 6rem;
   height: 6rem;
   overflow: hidden;
   border-radius: 50%; 
+}
+
+.a4-page.modern .profileWrapper {
   border: .25rem solid #fff;
+}
+
+.a4-page.classic .profileWrapper { 
+  border: .25rem solid var(--cv-primary-color);
+}
+
+.a4-page.minimal .profileWrapper { 
+  border: none;
+  border-radius: 10%;
 }
 
 .profileWrapper img {
@@ -232,8 +260,15 @@ address {
   align-items: start;
 }
 
-address h1 {
+.a4-page.modern address h1 {
   color: #fff;
+}
+
+.a4-page.classic address h1 {
+  color: var(--cv-primary-color);
+}
+
+address h1 {
   font-size: 1.5rem;
   font-weight: bold;
   margin-block: .5em
@@ -245,6 +280,19 @@ address h1 {
   list-style: none;
   padding: 0;
   gap: .5rem;
+}
+
+.a4-page.modern .contactList li{
+  color: #fff;
+}
+
+.a4-page.classic .contactList li, .a4-page.minimal .contactList li{
+  color: gray;
+}
+
+.a4-page.minimal .contactList {
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
 }
 
 .contactList li{
@@ -278,16 +326,32 @@ address h1 {
 }
 
 .a4-page section h2 {
-  color: var(--cv-primary-color);
-  border-bottom: 2px solid var(--cv-primary-color);
   text-transform: uppercase;
   font-weight: bold;
   padding-block: .5rem;
   margin-block: .5rem;
 }
 
-.cvBody section strong {
+.a4-page.modern section h2 {
+  color: var(--cv-primary-color);
+  border-bottom: 2px solid var(--cv-primary-color);
+}
+
+.a4-page.classic section h2 {
+  color: var(--cv-primary-color);
+  border-bottom: none;
+}
+
+.a4-page.modern .cvBody section strong {
   color: var(--cv-secondary-color)
+}
+
+.a4-page.classic .cvBody section strong {
+  color: black;
+}
+
+.a4-page.minimal #summary h2 {
+  display: none;
 }
 
 .jobHeader, .studyHeader {
