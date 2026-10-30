@@ -201,11 +201,12 @@ nav {
 /*Cv page*/
 
 .a4-page header {
-  background-color: rebeccapurple;
+  background: linear-gradient(135deg, var(--cv-primary-color), var(--cv-secondary-color));
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  padding: 1rem;
+  padding: 2rem;
+  gap: 1.5rem;
 }
 
 .profileWrapper {
@@ -227,7 +228,7 @@ address {
   font-style: normal;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
 }
 
 address h1 {
@@ -243,6 +244,7 @@ address h1 {
   grid-template-columns: 1fr 1fr;
   list-style: none;
   padding: 0;
+  gap: .5rem;
 }
 
 .contactList li{
@@ -276,12 +278,16 @@ address h1 {
 }
 
 .a4-page section h2 {
-  color: purple;
-  border-bottom: 2px solid purple;
+  color: var(--cv-primary-color);
+  border-bottom: 2px solid var(--cv-primary-color);
   text-transform: uppercase;
   font-weight: bold;
   padding-block: .5rem;
   margin-block: .5rem;
+}
+
+.cvBody section strong {
+  color: var(--cv-secondary-color)
 }
 
 .jobHeader, .studyHeader {

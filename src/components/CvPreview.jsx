@@ -4,7 +4,14 @@ import { Mail, Phone, Globe, MapPin, Link  } from "lucide-react";
 function CvPreview({cvInfo, isPreviewOpen}) {
     return (
         <div className = {`cv_preview_modal ${isPreviewOpen? "active": ""}`}>
-            <article className="a4-page">
+            <article 
+                className="a4-page"
+                style={{
+                    "--cv-primary-color": cvInfo.customization.primaryColor,
+                    "--cv-secondary-color": cvInfo.customization.secondaryColor,
+                    
+                }}
+            >
                 <header>
                     {cvInfo.personalInfo.profileImgUrl && <div className="profileWrapper"><img src={cvInfo.personalInfo.profileImgUrl} alt="" /></div>}
                     <address>

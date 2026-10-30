@@ -141,6 +141,7 @@ function CustomizationForm({cvInfo, changeCv}) {
                                             onChange={handleInputChange}
                                             className="hex_text_input"
                                             name="primaryTextC"
+                                            readOnly
                                         />
                                     </div>
                                 </div>
@@ -161,6 +162,7 @@ function CustomizationForm({cvInfo, changeCv}) {
                                             onChange={handleInputChange}
                                             className="hex_text_input"
                                             name="secondaryTextC"
+                                            readOnly
                                         />
                                     </div>
                                 </div>
