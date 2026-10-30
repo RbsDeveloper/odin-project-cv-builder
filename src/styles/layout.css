@@ -39,6 +39,7 @@ main {
   flex-direction: column;
   min-width: (100%, 210mm);
   max-width: 100%;
+  font-family: var(--cv-font-family), Arial, sans-serif;
 }
 
 .preview_btn {
@@ -235,7 +236,6 @@ address h1 {
   color: #fff;
   font-size: 1.5rem;
   font-weight: bold;
-  font-family: 'Inter', sans-serif;
   margin-block: .5em
 }
 

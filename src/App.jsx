@@ -61,7 +61,7 @@ const sampleCv = {
     colorTheme: "modern",
     primaryColor: "#4f46e5",
     secondaryColor: "#1e293b",
-    fontFamily: "Inter, sans-serif",
+    fontFamily: "Inter",
     layout: "Modern"
   }
   }

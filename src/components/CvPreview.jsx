@@ -9,7 +9,7 @@ function CvPreview({cvInfo, isPreviewOpen}) {
                 style={{
                     "--cv-primary-color": cvInfo.customization.primaryColor,
                     "--cv-secondary-color": cvInfo.customization.secondaryColor,
-                    
+                    "--cv-font-family":cvInfo.customization.fontFamily
                 }}
             >
                 <header>
