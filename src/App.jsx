@@ -1,7 +1,8 @@
 import NavBar from './components/Nav'
 import CvEditor from './components/CvEditor'
 import CvPreview from './components/CvPreview'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { useReactToPrint } from 'react-to-print'
 import './styles/App.css'
 import './styles/layout.css'
 import './styles/forms.css'
@@ -95,6 +96,21 @@ const sampleCv = {
   }
   }
 
+function isValidSavedCv(value) {
+  return (
+    value !== null &&
+    typeof value === "object" &&
+    !Array.isArray(value) && 
+    typeof value.personalInfo === "object" &&
+    Array.isArray(value.education) &&
+    Array.isArray(value.jobs) &&
+    Array.isArray(value.languages) &&
+    Array.isArray(value.skills) &&
+    Array.isArray(value.projects) &&
+    typeof value.customization === "object"
+  );
+}
+
 
 
 function App() {
@@ -108,7 +124,7 @@ function App() {
 
     try{
       const initialCv = JSON.parse(savedCv);
-      return initialCv;
+      return isValidSavedCv(initialCv) ? initialCv : emptyCv;
     }catch(error){
       console.error("Could not restore the Cv:", error);
       localStorage.removeItem("cvData");
@@ -125,14 +141,23 @@ function App() {
     localStorage.setItem("cvData", JSON.stringify(cv));
   }, [cv]);
 
+  //Print cv 
+  const cvRef = useRef(null);
+  const handlePrint = useReactToPrint({
+    contentRef: cvRef,
+    documentTitle: "CV",
+  });
+  
+
   return (
     <>
-      <NavBar isPreviewOpen={isPreviewOpen} setPreview={setPreview} onAutoFill={handleAutoFill}></NavBar>
+      <NavBar isPreviewOpen={isPreviewOpen} setPreview={setPreview} onAutoFill={handleAutoFill} printAction={handlePrint}></NavBar>
       <main>
         <CvEditor cvInfo={cv} changeCv={setCv}></CvEditor>
         <CvPreview 
           cvInfo={cv}
           isPreviewOpen={isPreviewOpen}
+          cvRef={cvRef}
           ></CvPreview>
       </main>
     </>

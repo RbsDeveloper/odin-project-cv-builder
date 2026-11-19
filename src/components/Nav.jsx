@@ -1,6 +1,6 @@
 import { Sparkles, Printer, Download, Eye, EyeOff, FileText } from "lucide-react"
 
-function NavBar({isPreviewOpen, setPreview, onAutoFill}) {
+function NavBar({isPreviewOpen, setPreview, onAutoFill, printAction}) {
     return(
         <nav className="navbar">
             <div className="logoContainer">
@@ -22,7 +22,10 @@ function NavBar({isPreviewOpen, setPreview, onAutoFill}) {
                     </button>
                 </li>
                 <li>
-                    <button className="printCv_Btn nav_btn">
+                    <button 
+                    className="printCv_Btn nav_btn"
+                    onClick={printAction}   
+                    >
                         <Printer />
                         Print
                     </button>
