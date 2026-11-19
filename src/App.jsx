@@ -1,7 +1,7 @@
 import NavBar from './components/Nav'
 import CvEditor from './components/CvEditor'
 import CvPreview from './components/CvPreview'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './styles/App.css'
 import './styles/layout.css'
 import './styles/forms.css'
@@ -99,12 +99,31 @@ const sampleCv = {
 
 function App() {
 
-  const [cv, setCv] = useState(emptyCv);
+  const [cv, setCv] = useState(() => {
+    const savedCv = localStorage.getItem("cvData");
+
+    if(!savedCv){
+      return emptyCv;
+    };
+
+    try{
+      const initialCv = JSON.parse(savedCv);
+      return initialCv;
+    }catch(error){
+      console.error("Could not restore the Cv:", error);
+      localStorage.removeItem("cvData");
+      return emptyCv;
+    }
+  });
   const [isPreviewOpen, setPreview] = useState(false);
 
   function handleAutoFill() {
-  setCv({...sampleCv});
-};
+      setCv({...sampleCv});
+  };
+
+  useEffect(() => {
+    localStorage.setItem("cvData", JSON.stringify(cv));
+  }, [cv]);
 
   return (
     <>
