@@ -114,7 +114,7 @@ function CustomizationForm({cvInfo, changeCv}) {
         <div className="accordion accordion_customization">
             <div className="accordion_header" onClick={handleClick}>
                 <h2><Palette/> Customization</h2>
-                <ChevronDown/>
+                <ChevronDown className={isOpen ? "chevron chevron_open" : "chevron"}/>
             </div>
             {isOpen && (
                 <div className="accordion_panel">

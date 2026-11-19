@@ -68,6 +68,15 @@ h2 svg {
     height: 1rem;
 }
 
+.chevron {
+    transition: transform 200ms ease;
+}
+
+.chevron_open {
+    transform: rotate(180deg);
+}
+
+
 .accordion_panel {
     padding: 1rem;
 }

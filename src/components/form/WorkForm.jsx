@@ -37,7 +37,7 @@ function WorkForm({cvInfo, changeCv}) {
         <div className="accordion accordion_work">
             <div className="accordion_header" onClick={toggleAccordion}>
                 <h2><Briefcase></Briefcase> Work Experience</h2>
-                <ChevronDown></ChevronDown>
+                <ChevronDown className={isOpen ? "chevron chevron_open" : "chevron"}></ChevronDown>
             </div>
 
             {isOpen && (
@@ -114,7 +114,7 @@ function CreateWorkForm({ jobInfo, changeCv }) {
         <div className="job_card card">
             <div className="card_header" onClick={toggleAccordionSections}>
                 <div className="header_left_side">
-                    <ChevronDown></ChevronDown> 
+                    <ChevronDown className={isOpen ? "chevron chevron_open" : "chevron"}></ChevronDown> 
                     <h2 className="job_title">{jobInfo.position === "" ? "New Position" : jobInfo.position}</h2>
                 </div>
                 <div className="header_right_side">

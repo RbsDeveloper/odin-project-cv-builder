@@ -13,7 +13,7 @@ function PersonalInfoForm({cvInfo, changeCv}) {
         <div className="accordion accordion_personalInfo">
             <div className="accordion_header" onClick={handleClick}>
                 <h2><User></User> Personal Information</h2>
-                <ChevronDown></ChevronDown>
+                <ChevronDown className={isOpen ? "chevron chevron_open" : "chevron"}></ChevronDown>
             </div>
             {isOpen && (
                     <div className="accordion_panel">

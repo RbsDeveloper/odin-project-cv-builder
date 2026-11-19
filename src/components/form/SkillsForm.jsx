@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Code, ChevronDown, ChevronUp, Plus, Save, Trash, Pencil } from "lucide-react"
+import { Code, ChevronDown, Plus, Save, Trash, Pencil } from "lucide-react"
 
 function SkillsForm({cvInfo, changeCv}) {
 
@@ -32,7 +32,7 @@ function SkillsForm({cvInfo, changeCv}) {
         <div className="accordion accordion_skills">
             <div className="accordion_header" onClick={toggleAccordion}>
                 <h2><Code></Code> Skills</h2>
-                <ChevronDown></ChevronDown>
+                <ChevronDown className={isOpen ? "chevron chevron_open" : "chevron"}></ChevronDown>
             </div>
 
             {isOpen && (
@@ -100,7 +100,7 @@ function CreateSkillForm({ skillInfo, changeCv}) {
         <div className="skill_card card">
             <div className="card_header" onClick={toggleAccordionSections}>
                 <div className="header_left_side">
-                    <ChevronUp></ChevronUp>
+                    <ChevronDown className={isOpen ? "chevron chevron_open" : "chevron"}></ChevronDown>
                     <h2>{skillInfo.category === "" ? "New Skill Category" : skillInfo.category }</h2>
                 </div>
                 <div className="header_right_side">

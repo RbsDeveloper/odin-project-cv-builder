@@ -32,7 +32,7 @@ function LanguagesForm({ cvInfo , changeCv}) {
         <div className="accordion accordion_languages">
             <div className="accordion_header" onClick={toggleAccordion}>
                 <h2><Languages></Languages> Languages</h2>
-                <ChevronDown></ChevronDown>
+                <ChevronDown className={isOpen ? "chevron chevron_open" : "chevron"}></ChevronDown>
             </div>
             {isOpen && (
                  <div className="accordion_panel">
@@ -97,7 +97,7 @@ function CreateLanguageForm({langInfo, changeCv}) {
         <div className="language_card card">
             <div className="card_header" onClick={toggleAccordionSections}>
                 <div className="header_left_side">
-                    <ChevronDown></ChevronDown>
+                    <ChevronDown className={isOpen ? "chevron chevron_open" : "chevron"}></ChevronDown>
                     <h2 className="language_title">{langInfo.name === "" ? "New Language" : langInfo.name}</h2>
                 </div>
                 <div className="header_right_side">

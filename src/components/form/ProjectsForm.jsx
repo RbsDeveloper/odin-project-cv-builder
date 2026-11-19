@@ -37,7 +37,7 @@ function ProjectsForm({cvInfo, changeCv}) {
         <div className="accordion accordion_projects">
             <div className="accordion_header" onClick={toggleAccordion}>
                 <h2><Folder /> Projects</h2>
-                <ChevronDown></ChevronDown>
+                <ChevronDown className={isOpen ? "chevron chevron_open" : "chevron"}></ChevronDown>
             </div>
             {isOpen && (
                 <div className="accordion_panel">
@@ -106,7 +106,7 @@ function CreateForm({projectInfo, changeCv}) {
         <div className="project_card card" id={`edu-${projectInfo.id}`}>
             <div className="card_header" onClick={toggleAccordionSections}>
                 <div className="header_left_side">
-                    <ChevronDown></ChevronDown>
+                    <ChevronDown className={isOpen ? "chevron chevron_open" : "chevron"}></ChevronDown>
                     <h2 className="project_title">{projectInfo.projectName !== "" ? projectInfo.projectName : "New project"}</h2>
                 </div>
                 <div className="header_right_side">

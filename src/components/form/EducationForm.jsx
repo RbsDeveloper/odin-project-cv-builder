@@ -39,7 +39,7 @@ function EducationForm({cvInfo, changeCv}) {
         <div className="accordion accordion_education">
             <div className="accordion_header" onClick={toggleAccordion}>
                 <h2><GraduationCap /> Education</h2>
-                <ChevronDown></ChevronDown>
+                <ChevronDown className={isOpen ? "chevron chevron_open" : "chevron"}></ChevronDown>
             </div>
             {isOpen && (
                 <div className="accordion_panel">
@@ -103,14 +103,14 @@ function CreateForm({eduInfo, changeCv}) {
         }))
     }
 
-    
+     
 
     return (
 
         <div className="education_card card" id={`edu-${eduInfo.id}`}>
             <div className="card_header" onClick={toggleAccordionSections}>
                 <div className="header_left_side">
-                    <ChevronDown></ChevronDown>
+                    <ChevronDown className={isOpen ? "chevron chevron_open" : "chevron"}></ChevronDown>
                     <h2 className="education_title">{eduInfo.institution !== "" ? eduInfo.institution : "New education"}</h2>
                 </div>
                 <div className="header_right_side">
