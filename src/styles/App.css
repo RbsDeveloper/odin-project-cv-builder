@@ -2,6 +2,20 @@
 
 :root {
 
+  --bg: #0b0d12;
+  --surface: #11141b;
+  --surface-2: #171b24;
+  --surface-3: #1e232e;
+  --border: #242a36;
+  --border-strong: #323a4a;
+  --text: #e8eaf0;
+  --text-muted: #9aa3b4;
+  --text-faint: #646c7e;
+  --accent: #8b7bff;
+  --accent-strong: #a597ff;
+  --success: #3ddc97;
+  --danger: #ff6b6b;
+
   --primary-indigo-purple: #6366f1;
   --secondary-indigo-purple: #9333EA;
   --primary-blue-ocean: #3B82F6;

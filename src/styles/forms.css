@@ -1,8 +1,6 @@
 .editor-wrapper {
-    padding: 1rem;
-    border: 1px solid #C7D2FE;
-    border-radius: 1rem;
-    margin: 0.5rem;
+    padding: 1rem; 
+    background-color: var(--surface);
 }
 
 .accordion {
@@ -13,34 +11,8 @@
     overflow: hidden;
     box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
     border: none;
-}
-
-.accordion_personalInfo .accordion_header {
-    background: linear-gradient(135deg, var(--primary-indigo-purple), var(--secondary-indigo-purple));
-}
-
-.accordion_education .accordion_header {
-    background: linear-gradient(135deg, var(--secondary-indigo-purple), var(--secondary-rose-pink));
-}
-
-.accordion_work .accordion_header {
-    background: linear-gradient(135deg, var(--primary-blue-ocean), var(--secondary-navy));
-}
-
-.accordion_languages .accordion_header {
-    background: linear-gradient(135deg, var(--primary-emerald-green), var(--secondary-emerald-green));
-}
-
-.accordion_skills .accordion_header {
-    background: linear-gradient(135deg, var(--primary-orange-sunset), var(--secondary-orange-sunset));
-}
-
-.accordion_projects .accordion_header {
-    background: linear-gradient(135deg, var(--secondary-blue-ocean), var(--secondary-navy));
-}
-
-.accordion_customization .accordion_header {
-    background: linear-gradient(135deg, var(--secondary-rose-pink), var(--primary-indigo-purple));
+    font-family: 'Inter', sans-serif;
+    background-color: var(--surface-2);
 }
 
 .accordion_header, .accordion_header h2 {
@@ -49,7 +21,7 @@
 }
 
 .accordion_header {
-    color: #fff;
+    color: var(--text);
     justify-content: space-between;
     width: 100%;
     font-size: .8rem;
@@ -66,6 +38,7 @@
 h2 svg {
     width: 1rem;
     height: 1rem;
+    color: var(--accent);
 }
 
 .chevron {
@@ -84,9 +57,10 @@ h2 svg {
 /*Personal info card*/
 
 .image_selector {
-    background-color: #eef2ff;
-    border: 1px solid #C7D2FE;
-    padding: 1rem;
+    background-color: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: .5rem;
     border-radius: .5rem;
     display: flex;
     justify-content: center;
@@ -102,7 +76,6 @@ h2 svg {
 
 .image_selector fieldset {
     display: flex;
-    flex-direction: column;
     align-items: center;
     border: none;
     width: 100%;
@@ -111,6 +84,8 @@ h2 svg {
 
 .image_selector fieldset input {
     width: 100%;
+    color: var(--text);
+    border-color: var(--border);
 }
 
 .personal_info_fields {
@@ -118,13 +93,19 @@ h2 svg {
     flex-direction: column;
     gap: .5rem;
     border: none;
-    font-family: 'Inter', sans-serif;
 }
 
 .personal_info_fields label {
     display: flex;
     align-items: center;
     gap: .5rem;
+    color: var(--text-faint);
+}
+
+.personal_info_fields input, .personal_info_fields textarea {
+    background-color: var(--surface);
+    color: var(--text);
+    border-color: var(--border-strong);
 }
 
 .personal_info_fields svg.lucide {
@@ -137,7 +118,8 @@ h2 svg {
     width: 5rem;
     height: 5rem;
     border-radius: 50%;
-    background: linear-gradient(250deg, var(--primary-indigo-purple), var(--secondary-indigo-purple));
+    background: transparent;
+    border: 1px solid var(--border-strong);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -146,62 +128,111 @@ h2 svg {
 }
 
 #upload_btn {
-    background-color: #fff;
-    color: var(--primary-indigo-purple);
+    background-color: var(--surface-3);
+    color: var(--accent);
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: .5rem;
-    padding: .35rem 2rem;
-    border-radius: .7rem;
-    border: 1px solid #C7D2FE;
+    padding: .2rem;
+    border-radius: .3rem;
+    border: 1px solid var(--border);
     font-size: .85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        color 180ms ease,
+        background-color 180ms ease,
+        border-color 180ms ease,  
+}
+
+#upload_btn:hover {
+    background: var(--surface);
+    border-color: var(--primary-indigo-purple);
 }
 
 #upload_btn svg.lucide {
     width: 1rem;
     height: 1rem;
+    transition: transform 180ms ease;
+}
+
+#upload_btn:hover svg.lucide {
+    transform: translateY(-2px) scale(1.08);
+}
+
+#upload_btn:active {
+    background: #e0e7ff;
+    box-shadow: 0 2px 5px rgb(99 102 241 / 15%);
+    transform: translateY(0) scale(.98);
+}
+
+#upload_btn:focus-visible {
+    outline: 3px solid rgb(99 102 241 / 35%);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #upload_btn,
+    #upload_btn svg.lucide {
+        transition: none;
+    }
+
+    #upload_btn:hover,
+    #upload_btn:hover svg.lucide,
+    #upload_btn:active {
+        transform: none;
+    }
 }
 
 
 .card {
-    border: 1px solid #c7d2fe;
+    border: 1px solid var(--border-strong);
     border-radius: .5rem;
     margin-block: 1rem;
+    background-color: var(--surface);
 }
 
 .card_header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #e0e7ff;
     padding: .5rem 1rem;
-    font-size: .65rem;
-    font-family: "Inter", sans-serif;
-    color: #111827;
+    font-size: .5rem;
+    color: var(--text);
+    border-bottom: 1px solid var(--border-strong);
 }
 
 input, select {
-    font-family: 'Inter', sans-serif;
     padding: .25rem .5rem;
     border-radius: .5rem;
-    border: 1px solid #d1d5db;
-    background: transparent;
+    border: 1px solid var(--border-strong);
+    background:  var(--bg);
     font-size: .85rem;
+    color: var(--text);
 }
 
 textarea {
     resize: none;
     padding: .5rem;
     border-radius: .5rem;
-    border: 1px solid lightgray;
-    background: transparent;
+    border: 1px solid var(--border-strong);
+    background: var(--bg);
+    color: var(--text);
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: none;
+  outline-offset: 2px;
+  border-color: var(--accent);
 }
 
 .card_body {
     padding: 1rem;
-    background-color: #eef2ff;
+    border-radius: 0.5rem;
 }
 
 .card_body form {
@@ -210,8 +241,7 @@ textarea {
 }
 
 .card_body label {
-    color:#4b5563;
-    font-family: 'Inter', sans-serif;
+    color: var(--text-faint);
     font-size: 0.8rem;
     font-weight: 500;
 }
@@ -239,6 +269,11 @@ textarea {
 .header_right_side {
     display: flex;
     gap: .5rem;
+}
+
+.header_right_side button svg {
+    width: .85rem;
+    height: .85rem;
 }
 
 .edit_btn, .save_btn, .delete_btn {
@@ -272,23 +307,67 @@ textarea {
 }
 
 .btn-add {
-    font-family: 'Inter', sans-serif;
     color: var(--primary-indigo-purple);
     font-size: 1rem;
     font-weight: 500;
     display: flex;
-    padding: 0.70rem 1.75rem;
+    padding: 0.75rem 1.25rem;
     width: 100%;
     justify-content: center;
     align-items: center;
     gap: .5rem;
-    border-radius: 1rem;
-    border: dashed 1px;
-    background-color: transparent;
+    border: 1px dashed #a5b4fc;
+    border-radius: .75rem;
+    background: #f8faff;
+    cursor: pointer;
+    transition:
+        color 180ms ease,
+        background-color 180ms ease,
+        border-color 180ms ease,
+        box-shadow 180ms ease,
+        transform 120ms ease;
 }
 
-.accordion_customization .accordion_panel {
-    font-family: 'Inter', sans-serif;
+.btn-add svg {
+    width: 1.125rem;
+    height: 1.125rem;
+    flex: 0 0 auto;
+    transition: transform 180ms ease;
+}
+
+.btn-add:not(:disabled):hover {
+    color: #fff;
+    background: linear-gradient(135deg, var(--primary-indigo-purple), var(--secondary-indigo-purple));
+    border-color: transparent;
+    border-style: solid;
+    box-shadow: 0 5px 14px rgb(99 102 241 / 25%);
+}
+
+.btn-add:not(:disabled):hover svg {
+    transform: rotate(90deg);
+}
+
+.btn-add:not(:disabled):active {
+    transform: translateY(1px) scale(.99);
+    box-shadow: 0 2px 6px rgb(99 102 241 / 20%);
+}
+
+.btn-add:focus-visible {
+    outline: 3px solid rgb(99 102 241 / 35%);
+    outline-offset: 3px;
+}
+
+.btn-add:disabled {
+    color: #9ca3af;
+    background: #f3f4f6;
+    border-color: #d1d5db;
+    border-style: dashed;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.btn-add:disabled svg {
+    opacity: .65;
 }
 
 .theme_btns h4, .font_selector_container label, .layout_btns h4 {
@@ -304,16 +383,15 @@ textarea {
 }
 
 .theme_btn {
-    background-color: #fff;
-    border: 1px solid #D1D5DB;
-    color: #4B5563;
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text-faint);
     border-radius: .5rem;
     display: flex;
     flex-direction: column;
     align-items: start;
     gap: .25rem;
-    padding: .5rem;
-    font-family: 'Inter', sans-serif;
+    padding: .65rem;
     font-size: .75rem;
     font-weight: 500;
 }
@@ -338,6 +416,10 @@ textarea {
     background-color: var(--secondary-color);
 }
 
+.color_picker label {
+    color: var(--text-faint);
+}
+
 .font_selector_container {
     display: flex;
     flex-direction: column;
@@ -351,22 +433,19 @@ textarea {
 }
 
 .layout_btn {
-    background-color: #fff;
-    border-color: #D1D5DB;
+    background-color: var(--bg);
+    border: 1px solid var(--border);
     border-radius: .5rem;
     display: flex;
     flex-direction: column;
     align-items: start;
     gap: .25rem;
     padding: .5rem;
-    font-family: 'Inter', sans-serif;
     font-weight: 500;
-    color: black;
-    box-shadow: none;
-    border: 1px solid #D1D5DB;
+    color: var(--text);
 }
 
 .layout_btn span {
     font-size: .75rem;
-    color: #4B5563;
+    color: var(--text-faint);
 }

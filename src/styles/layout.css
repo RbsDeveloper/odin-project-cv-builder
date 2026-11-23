@@ -1,3 +1,7 @@
+body {
+  background-color: var(--surface);
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -6,12 +10,13 @@ main {
   min-height: 0;
   width: 100%;
   box-sizing: border-box;
-  padding-block: 5rem;
+  padding-block: 3.5rem;
   overflow: hidden;
 }
 
 .cv_preview_modal {
     display: none;
+    position: relative;
 }
 
 .cv_preview_modal.active {
@@ -28,6 +33,20 @@ main {
     z-index: 1000;
 }
 
+.preview_scroll {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #0b0d12;
+  background-image: radial-gradient(#1e232e 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.preview_stage {
+  width: fit-content;
+  margin: 2rem auto 5rem;
+}
+
 .a4-page {
   background-color: #fff;
   box-shadow: 
@@ -37,8 +56,9 @@ main {
   margin: 1rem;
   display: flex;
   flex-direction: column;
-  min-width: (100%, 210mm);
-  max-width: 100%;
+  width: 794px;
+  min-height: 1123px;
+  flex-shrink: 0;
   font-family: var(--cv-font-family), Arial, sans-serif;
 }
 
@@ -51,11 +71,12 @@ main {
 }
 
 nav {
-  background-color: #fff;
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--border-strong);
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
-  padding: 1rem;
+  padding: .5rem .75rem;
   position: fixed;
   top: 0;
   left: 0;
@@ -70,6 +91,20 @@ nav {
   gap: 0.5rem;
 }
 
+.logoContainer .icon {
+  border: 1px solid var(--border);
+  color: var(--accent);
+  background-color: var(--surface-2);
+  padding: .25rem;
+  border-radius: .3rem;
+}
+
+.logoContainer .logoText {
+  color: var(--text);
+  font-family: Inter, 'sans-serif';
+  font-weight: 600;
+}
+
 .navButtons {
   position: fixed;
   width: auto;
@@ -79,7 +114,6 @@ nav {
   border-top: 1px solid #ccc;
   display: flex;
   align-items: center;
-  background-color: #fff;
   padding: 0.75rem 1rem;
   padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
   list-style: none;
@@ -116,59 +150,38 @@ nav {
   min-width: 0;
   box-sizing: border-box;
   white-space: nowrap;
+  cursor: pointer;
+  transition:
+    transform 140ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease;
 }
 
 .nav_btn svg {
   width: 1.25rem;
   height: 1.25rem;
   flex: 0 0 1.25rem;
+  transition: transform 180ms ease;
 }
 
-.icon {
-  display: flex;
-  border-radius: .75rem;
-  width: 2.5rem;
-  height: 2.5rem;
-  justify-content: center;
-  align-items: center;
-  background-color: violet;
-}
-
-.icon svg {
-  padding: .35em;
-  width: 100%;
-  height: 100%;
-  color: #fff;
-}
-
-.logoText {
-  text-align: left;
-  line-height: 1.25rem;
-}
-
-.logoText p {
-  color: violet;
-  font-size: 1.35rem;
-  font-weight: bold;
-}
-
-.logoText span {
-  font-size: .85rem;
+.logoImage {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  object-fit: contain;
 }
 
 .autoFill_Btn {
-  color: #fff;
-  background: linear-gradient(135deg, var(--primary-orange-sunset), var(--secondary-orange-sunset))
-}
-
-.printCv_Btn {
-  border: 1px solid var(--primary-indigo-purple);
-  background-color: #fff;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  
 }
 
 .downloadPdf_Btn {
-  color: #fff;
-  background: linear-gradient(135deg, var(--primary-blue-ocean), var(--secondary-blue-ocean))
+  color: var(--bg);
+  background-color: var(--accent);
+
 }
 
 .preview_btn {
@@ -176,9 +189,51 @@ nav {
   background: linear-gradient(135deg, var(--primary-emerald-green), var(--secondary-emerald-green))
 }
 
+.autoFill_Btn:hover {
+  color: var(--text);
+  background-color: var(--surface-3);
+}
+
+.downloadPdf_Btn:hover {
+  background-color: var(--accent-strong);
+}
+
+.nav_btn:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgb(31 41 55 / 18%);
+}
+
+.nav_btn:not(:disabled):hover svg {
+  transform: scale(1.08);
+}
+
+.nav_btn:not(:disabled):active {
+  filter: brightness(.96);
+  transform: translateY(0) scale(.97);
+  box-shadow: 0 2px 5px rgb(31 41 55 / 16%);
+}
+
+.nav_btn:focus-visible {
+  outline: 3px solid rgb(99 102 241 / 40%);
+  outline-offset: 3px;
+}
+
 .nav_btn svg {
   width: 1rem;
   height: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav_btn,
+  .nav_btn svg {
+    transition: none;
+  }
+
+  .nav_btn:not(:disabled):hover,
+  .nav_btn:not(:disabled):hover svg,
+  .nav_btn:not(:disabled):active {
+    transform: none;
+  }
 }
 
 /*Editor side*/
@@ -384,6 +439,75 @@ address h1 {
   font-weight: 600;
 }
 
+.preview_toolbar {
+  position: fixed;
+  bottom: 5.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1500;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  width: max-content;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.92);
+  color: #f8fafc;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.zoom_btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: #f8fafc;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.zoom_btn svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.zoom_btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.zoom_btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.zoom_btn.is_active {
+  color: #818cf8;
+}
+
+.zoom_value {
+  min-width: 3rem;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.toolbar_divider {
+  width: 1px;
+  height: 1rem;
+  margin-inline: 0.2rem;
+  background: rgba(255, 255, 255, 0.2);
+}
+
 @media (min-width: 768px) {
   nav {
     display: flex;
@@ -412,9 +536,12 @@ address h1 {
 @media (min-width: 1024px) {
 
   main {
-    height: auto;
-    min-height: 100dvh;
-    gap: 2rem;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding-bottom: 0;
+    height: 100dvh;
+    overflow: hidden;
   }
 
   .navButtons {
@@ -432,28 +559,35 @@ address h1 {
   }
 
   .editor-wrapper {
-    flex: none;
-    max-height: calc(100dvh - 7rem);
-    min-height: 0;
+    flex: 9 1 0;
+    width: auto;
+    min-width: 0;
+    min-height: 100%;
+    max-height: calc(100dvh - 6rem);
     overflow-y: auto;
     overscroll-behavior: contain;
+    border-right: 1px solid var(--border-strong)
   }
 
   .cv_preview_modal,
   .cv_preview_modal.active {
-    position: static;
-    inset: auto;
-    z-index: auto;
     display: flex;
-    flex: none;
-    width: 100%;
-    min-height: 0;
-    max-height: none;
-    justify-content: center;
-    align-items: flex-start;
-    overflow: visible;
-    padding-inline: 1rem;
+    flex: 11 1 0%;
+    min-width: 0;
+    position: relative;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    height: calc(100dvh - 3.5rem);
     background: transparent;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .preview_toolbar {
+    position: absolute;
+    bottom: 1.25rem;
   }
 
    #cvPreviewBtn {
@@ -466,37 +600,13 @@ address h1 {
 }
 
 @media (min-width: 1280px) {
-  body{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  main {
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 2rem;
-    padding-inline: 2rem;
-    max-width: 1400px;
-  }
-
   .editor-wrapper {
-    flex: 0 0 600px;
-    width: 600px;
-    margin: 0;
+    flex: 0 1 30%;
+    max-width: 520px;
   }
 
   .cv_preview_modal,
   .cv_preview_modal.active {
-    flex: 1;
-    min-width: 0;
-    padding-inline: 0;
-  }
-
-  .a4-page {
-    width: 210mm;
-    max-width: 100%;
+    flex: 1 1 0;
   }
 }
