@@ -1,10 +1,53 @@
-import { Mail, Phone, Globe, MapPin, Link  } from "lucide-react";
+import { Mail, Phone, Globe, MapPin, Link, ZoomOut, ZoomIn, Maximize2,  } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
 
+const PAGE_WIDTH = 794;
+const DESKTOP_GUTTER = 48;
+const MOBILE_GUTTER = 12;
+const MIN_ZOOM = 0.3;
+const MAX_ZOOM = 2;
+
+// Helper to keep a number between min and max
+const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 
 function CvPreview({cvInfo, isPreviewOpen, cvRef}) {
+
+    const scrollRef = useRef(null);
+    const [availableWidth, setAvailableWidth] = useState(PAGE_WIDTH);
+    const [zoom, setZoom] = useState(null); // null = automatic Fit-to-Width
+
+    useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    const observer = new ResizeObserver(([entry]) => {
+      const width = entry.contentRect.width;
+      // Ignore width 0 when the mobile modal is closed (display: none)
+      if (width > 0) {
+        setAvailableWidth(width);
+      }
+    });
+
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
+
+  // Calculate the scale needed to fit 794px inside the current container
+  const gutter = availableWidth < 600 ? MOBILE_GUTTER : DESKTOP_GUTTER;
+  const fitScale = clamp((availableWidth - gutter * 2) / PAGE_WIDTH, 0.1, 1.2);
+  const activeScale = zoom ?? fitScale;
+
+  function stepZoom(delta) {
+    // Round to 1 decimal place to avoid floating-point quirks like 0.7000000000000001
+    const next = Math.round((activeScale + delta) * 10) / 10;
+    setZoom(clamp(next, MIN_ZOOM, MAX_ZOOM));
+  }
+    
     return (
         <div className = {`cv_preview_modal ${isPreviewOpen? "active": ""}`}>
-            <article 
+            <div className="preview_scroll" ref={scrollRef}>
+                <div className="preview_stage" style={{ zoom: activeScale }}>
+                    <article 
                 className= {`a4-page ${cvInfo.customization.layout}`}
                 style={{
                     "--cv-primary-color": cvInfo.customization.primaryColor,
@@ -129,7 +172,44 @@ function CvPreview({cvInfo, isPreviewOpen, cvRef}) {
                         </ul>
                     </section>
                 </div>
-            </article>
+                    </article>
+                </div>
+            </div>
+            
+
+            {/*Floating Zoom Toolbar*/}
+
+            <div className="preview_toolbar">
+                <button 
+                    className="zoom_btn"
+                    title="Zoom Out"
+                    disabled={activeScale <= MIN_ZOOM}
+                    onClick={() => stepZoom(-0.1)}
+                >
+                    <ZoomOut></ZoomOut>
+                </button>
+
+                <span className="zoom_value">{Math.round(activeScale * 100)}%</span> 
+
+                <button 
+                    className="zoom_btn"
+                    title="Zoom In"
+                    disabled={activeScale >= MAX_ZOOM}
+                    onClick={() => stepZoom(0.1)}
+                >
+                    <ZoomIn></ZoomIn>
+                </button>
+
+                <span className="toolbar_divider" />
+
+                <button 
+                    className={`zoom_btn ${zoom === null ? "is_active" : ""}`}
+                    title="Fit to width"
+                    onClick={() => setZoom(null)}
+                >
+                    <Maximize2></Maximize2>
+                </button>
+            </div>
         </div>
     )
 };
