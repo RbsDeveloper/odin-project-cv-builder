@@ -3,7 +3,6 @@ import CvEditor from './components/CvEditor'
 import CvPreview from './components/CvPreview'
 import { useState, useEffect, useRef } from 'react'
 import { useReactToPrint } from 'react-to-print'
-import html2pdf from 'html2pdf.js'
 import './styles/App.css'
 import './styles/layout.css'
 import './styles/forms.css'
@@ -141,30 +140,17 @@ function App() {
   useEffect(() => {
     localStorage.setItem("cvData", JSON.stringify(cv));
   }, [cv]);
-
-  //Print cv 
-  const cvRef = useRef(null);
-  const handlePrint = useReactToPrint({
-    contentRef: cvRef,
+  
+//Print cv 
+const cvRef = useRef(null);
+const handlePrint = useReactToPrint({
+    contentRef: cvRef,    
     documentTitle: "CV",
   });
 
-  //Download cv as pdf
-  const handleDownloadPdf = () => {
-    const element = cvRef.current;
-    const opt = {
-      margin: 0,
-      filename: 'My_CV.pdf',
-      image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { scale: 2, useCORS: true }, 
-      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-    };
-    html2pdf().set(opt).from(element).save();
-  }
-
   return (
     <>
-      <NavBar isPreviewOpen={isPreviewOpen} setPreview={setPreview} onAutoFill={handleAutoFill} printAction={handlePrint} downloadPdfAction={handleDownloadPdf}></NavBar>
+      <NavBar isPreviewOpen={isPreviewOpen} setPreview={setPreview} onAutoFill={handleAutoFill} printAction={handlePrint}></NavBar>
       <main>
         <CvEditor cvInfo={cv} changeCv={setCv}></CvEditor>
         <CvPreview 
