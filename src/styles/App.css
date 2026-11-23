@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&family=Lato:wght@400;500;600;700&family=Montserrat:wght@400..700&family=Open+Sans:wght@400..700&family=Poppins:wght@400;500;600;700&family=Roboto:wght@400..700&family=Space+Grotesk:wght@400..700&display=swap');
 
 :root {
-
   --bg: #0b0d12;
   --surface: #11141b;
   --surface-2: #171b24;
@@ -13,21 +12,10 @@
   --text-faint: #646c7e;
   --accent: #8b7bff;
   --accent-strong: #a597ff;
-  --success: #3ddc97;
-  --danger: #ff6b6b;
 
   --primary-indigo-purple: #6366f1;
   --secondary-indigo-purple: #9333EA;
-  --primary-blue-ocean: #3B82F6;
-  --secondary-blue-ocean: #06b6d4;
   --primary-emerald-green: #10B981;
-  --secondary-emerald-green: #0F766E;
-  --primary-rose-pink: #f43f5e;
-  --secondary-rose-pink: #ec4899;
-  --primary-orange-sunset: #EA580C;
-  --secondary-orange-sunset: #DC2626;
-  --primary-navy: #1e3a8a;
-  --secondary-navy: #3730a3;
 }
 
 /* 1. Use a more-intuitive box-sizing model */
@@ -78,14 +66,11 @@ h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
 }
 
-/*
-  10. Create a root stacking context
-*/
-#root, #__next {
-  isolation: isolate;
-}
-
+/* App root and stacking context */
 #root {
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
   height: 100dvh;
   position: relative;
 }

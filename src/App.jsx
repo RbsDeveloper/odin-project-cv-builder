@@ -1,6 +1,7 @@
 import NavBar from './components/Nav'
 import CvEditor from './components/CvEditor'
 import CvPreview from './components/CvPreview'
+import MobileSwitcher from './components/MobileSwitcher'
 import { useState, useEffect, useRef } from 'react'
 import { useReactToPrint } from 'react-to-print'
 import './styles/App.css'
@@ -150,7 +151,7 @@ const handlePrint = useReactToPrint({
 
   return (
     <>
-      <NavBar isPreviewOpen={isPreviewOpen} setPreview={setPreview} onAutoFill={handleAutoFill} printAction={handlePrint}></NavBar>
+      <NavBar onAutoFill={handleAutoFill} printAction={handlePrint}></NavBar>
       <main>
         <CvEditor cvInfo={cv} changeCv={setCv}></CvEditor>
         <CvPreview 
@@ -159,6 +160,7 @@ const handlePrint = useReactToPrint({
           cvRef={cvRef}
           ></CvPreview>
       </main>
+      <MobileSwitcher isPreviewOpen={isPreviewOpen} setPreview={setPreview}></MobileSwitcher>
     </>
   )
 }

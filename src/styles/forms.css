@@ -187,6 +187,7 @@ h2 svg {
 }
 
 
+/* Shared form cards and controls */
 .card {
     border: 1px solid var(--border-strong);
     border-radius: .5rem;
@@ -370,6 +371,7 @@ textarea:focus-visible {
     opacity: .65;
 }
 
+/* Customization controls */
 .theme_btns h4, .font_selector_container label, .layout_btns h4 {
     color: #4B5563;
     font-weight: 500;
@@ -394,6 +396,10 @@ textarea:focus-visible {
     padding: .65rem;
     font-size: .75rem;
     font-weight: 500;
+}
+
+.theme_btn.active, .layout_btn.active {
+    border-color: var(--accent);
 }
 
 .colors {
