@@ -15,6 +15,10 @@
     background-color: var(--surface-2);
 }
 
+.accordion label {
+    color: var(--text-faint);
+}
+
 .accordion_header, .accordion_header h2 {
   display: flex;
   align-items: center;
@@ -99,7 +103,6 @@ h2 svg {
     display: flex;
     align-items: center;
     gap: .5rem;
-    color: var(--text-faint);
 }
 
 .personal_info_fields input, .personal_info_fields textarea {
@@ -372,8 +375,12 @@ textarea:focus-visible {
 }
 
 /* Customization controls */
-.theme_btns h4, .font_selector_container label, .layout_btns h4 {
-    color: #4B5563;
+.theme_btns h4,
+.font_selector_container label,
+.layout_btns h4,
+.color_picker label {
+    color: var(--text-faint);
+    font-size: 0.8rem;
     font-weight: 500;
 }
 
@@ -420,10 +427,6 @@ textarea:focus-visible {
 
 .color_circle:last-child {
     background-color: var(--secondary-color);
-}
-
-.color_picker label {
-    color: var(--text-faint);
 }
 
 .font_selector_container {

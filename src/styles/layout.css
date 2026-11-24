@@ -111,19 +111,22 @@ nav {
 .navButtons {
   display: flex;
   justify-content: flex-end;
-  padding: 0.75rem 1rem;
+  width: clamp(13.5rem, 34vw, 16.25rem);
+  padding: 0.75rem 0;
   list-style: none;
   gap: 0.5rem;
 }
 
 .navButtons > li {
   flex: 1 1 0;
+  height: 2.75rem;
   min-width: 0;
 }
 
 .navButtons li > button {
   display: flex;
   gap: .5rem;
+  height: 100%;
   padding: .75em 1em;
   border-radius: .75rem;
 }
@@ -532,20 +535,12 @@ address h1 {
 
 /* Responsive layouts */
 @media (min-width: 768px) {
-  .navButtons {
-    padding: 0.5rem 1rem;
-  }
-
   .nav_btn {
     flex-direction: row;
     align-items: center;
     gap: 0.5rem;
   }
 
-  .nav_btn svg {
-    width: 1.5rem;
-    height: 1.5rem;
-  }
 }
 
 @media (min-width: 1024px) {
@@ -565,7 +560,7 @@ address h1 {
   }
 
   .navButtons > li {
-    flex: 0 0 auto;
+    flex: 1 1 0;
   }
 
   .mobile_switcher {
