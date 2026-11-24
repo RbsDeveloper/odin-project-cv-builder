@@ -2,6 +2,8 @@
 
 CVPro is a responsive CV editor built with React. It provides a live, A4-style preview while users enter personal details, education, work experience, languages, skills, projects, and visual preferences. The application supports multiple layouts, custom colors and fonts, local browser persistence, and PDF output through the browser print flow.
 
+**Live demo:** [odin-project-cv-builder.vercel.app](https://odin-project-cv-builder.vercel.app/)
+
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES2023-F7DF1E?logo=javascript&logoColor=black)
@@ -28,18 +30,6 @@ CVPro is a responsive CV editor built with React. It provides a live, A4-style p
 - PDF/download action using `react-to-print`
 - Zoom controls, including manual zoom and fit-to-width
 
-## Screenshots
-
-No application screenshots or verified demo URL are currently available in the repository.
-
-Recommended captures for a portfolio:
-
-- Desktop view with the editor open beside the CV preview
-- Mobile editor and preview states
-- Modern, classic, and minimal CV layouts
-- The customization panel
-- The browser print/PDF preview
-
 ## Technologies
 
 | Technology | Role |
@@ -51,6 +41,7 @@ Recommended captures for a portfolio:
 | `react-to-print` | Browser print/PDF workflow for the CV document |
 | Lucide React | Consistent interface icons |
 | Browser `localStorage` | Persistent CV data without a backend |
+| Vercel | Hosting for the live application |
 | ESLint | JavaScript and React code quality checks |
 
 Google Fonts are loaded from CSS for the application and CV font choices.
@@ -170,7 +161,7 @@ There is no configured `test` package script.
 - Move the saved CV validation and state types into a dedicated module
 - Add keyboard and screen-reader behavior for the card headers and accordion controls
 - Add automated tests for print and responsive preview behavior
-- Add a real application preview image and live demo link
+- Add a real application preview image
 
 ## How to Run
 
